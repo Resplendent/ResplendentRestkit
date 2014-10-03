@@ -15,6 +15,7 @@
 		4359A97C19DF5B1E0047FEFA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4359A97A19DF5B1E0047FEFA /* LaunchScreen.xib */; };
 		4359A98819DF5B1E0047FEFA /* ResplendentRestkitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4359A98719DF5B1E0047FEFA /* ResplendentRestkitTests.m */; };
 		4359A99619DF5E280047FEFA /* RRKAddRouteIfNotAlreadyAdded.m in Sources */ = {isa = PBXBuildFile; fileRef = 4359A99519DF5E280047FEFA /* RRKAddRouteIfNotAlreadyAdded.m */; };
+		4359A99C19DF5F710047FEFA /* RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.m in Sources */ = {isa = PBXBuildFile; fileRef = 4359A99B19DF5F710047FEFA /* RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.m */; };
 		6D029189B85796D36AC11074 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F6029F34E4713DD9B3BBA2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,8 @@
 		4359A99419DF5E280047FEFA /* RRKAddRouteIfNotAlreadyAdded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRKAddRouteIfNotAlreadyAdded.h; sourceTree = "<group>"; };
 		4359A99519DF5E280047FEFA /* RRKAddRouteIfNotAlreadyAdded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRKAddRouteIfNotAlreadyAdded.m; sourceTree = "<group>"; };
 		4359A99919DF5E8C0047FEFA /* RUConditionalReturn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RUConditionalReturn.h; sourceTree = "<group>"; };
+		4359A99A19DF5F710047FEFA /* RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.h"; sourceTree = "<group>"; };
+		4359A99B19DF5F710047FEFA /* RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.m"; sourceTree = "<group>"; };
 		C2449FF8AA89F9EEB91DAC8E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +163,8 @@
 		4359A99319DF5B4E0047FEFA /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4359A99A19DF5F710047FEFA /* RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.h */,
+				4359A99B19DF5F710047FEFA /* RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.m */,
 				4359A99419DF5E280047FEFA /* RRKAddRouteIfNotAlreadyAdded.h */,
 				4359A99519DF5E280047FEFA /* RRKAddRouteIfNotAlreadyAdded.m */,
 			);
@@ -328,6 +333,7 @@
 			files = (
 				4359A99619DF5E280047FEFA /* RRKAddRouteIfNotAlreadyAdded.m in Sources */,
 				4359A97419DF5B1E0047FEFA /* ViewController.m in Sources */,
+				4359A99C19DF5F710047FEFA /* RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.m in Sources */,
 				4359A97119DF5B1E0047FEFA /* AppDelegate.m in Sources */,
 				4359A96E19DF5B1E0047FEFA /* main.m in Sources */,
 			);
