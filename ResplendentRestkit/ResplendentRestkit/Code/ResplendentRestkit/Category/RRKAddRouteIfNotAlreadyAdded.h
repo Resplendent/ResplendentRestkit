@@ -12,7 +12,7 @@
 
 
 
-@interface RRKAddRouteIfNotAlreadyAdded : RKRouteSet
+@interface RKRouteSet (RRKAddRouteIfNotAlreadyAdded)
 
 -(BOOL)rrk_containsRoute:(RKRoute *)route;
 -(void)rrk_addRouteIfNotAlreadyAdded:(RKRoute *)route;

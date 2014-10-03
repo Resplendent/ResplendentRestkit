@@ -13,7 +13,7 @@
 
 
 
-@implementation RRKAddRouteIfNotAlreadyAdded
+@implementation RKRouteSet (RRKAddRouteIfNotAlreadyAdded)
 
 -(BOOL)rrk_containsRoute:(RKRoute *)route
 {
