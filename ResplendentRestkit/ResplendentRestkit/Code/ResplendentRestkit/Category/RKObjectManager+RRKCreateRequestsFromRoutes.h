@@ -16,6 +16,7 @@
 
 //AFNetworking operation
 -(AFHTTPRequestOperation*)rrk_enqueueAFNetworkingRequestOperationForRoute:(RKRoute*)route
+																   object:(id)object
 															   parameters:(NSDictionary*)parameters
 														cancelOldRequests:(BOOL)cancelOldRequests
 																  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
@@ -23,12 +24,14 @@
 
 //Restkit operation
 -(RKObjectRequestOperation*)rrk_enqueueRestkitRequestOperationForRoute:(RKRoute*)route
+																object:(id)object
 															parameters:(NSDictionary*)parameters
 													 cancelOldRequests:(BOOL)cancelOldRequests
 															   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 															   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
+																			 object:(NSManagedObject*)object
 																		 parameters:(NSDictionary*)parameters
 																  cancelOldRequests:(BOOL)cancelOldRequests
 															   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
