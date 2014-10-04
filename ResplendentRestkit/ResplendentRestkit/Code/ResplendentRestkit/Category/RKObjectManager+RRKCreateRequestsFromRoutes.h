@@ -15,20 +15,20 @@
 @interface RKObjectManager (RRKCreateRequestsFromRoutes)
 
 //AFNetworking operation
--(AFHTTPRequestOperation*)rkk_enqueueAFNetworkingRequestOperationForRoute:(RKRoute*)route
+-(AFHTTPRequestOperation*)rrk_enqueueAFNetworkingRequestOperationForRoute:(RKRoute*)route
 															   parameters:(NSDictionary*)parameters
 														cancelOldRequests:(BOOL)cancelOldRequests
 																  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
 																  failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 //Restkit operation
--(RKObjectRequestOperation*)rkk_enqueueRestkitRequestOperationForRoute:(RKRoute*)route
+-(RKObjectRequestOperation*)rrk_enqueueRestkitRequestOperationForRoute:(RKRoute*)route
 															parameters:(NSDictionary*)parameters
 													 cancelOldRequests:(BOOL)cancelOldRequests
 															   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 															   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
--(RKObjectRequestOperation*)rkk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
+-(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
 																		 parameters:(NSDictionary*)parameters
 																  cancelOldRequests:(BOOL)cancelOldRequests
 															   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
