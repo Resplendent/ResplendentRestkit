@@ -20,11 +20,11 @@
 /*
  if managedObjectContext param is nil, will return rkk_enqueueRestkitRequestOperationForRoute, otherwise rkk_enqueueRestkitManagedObjectRequestOperationForRoute
  */
--(RKObjectRequestOperation*)rkk_enqueueRestkitPossibleManagedObjectRequestOperationForRoute:(RKRoute*)route
-																				 parameters:(NSDictionary*)parameters
-																	   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																					success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																					failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+-(RKObjectRequestOperation*)rkk_enqueueRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
+																			 parameters:(NSDictionary*)parameters
+																   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+																				success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+																				failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
 @end
 
@@ -34,7 +34,7 @@
 
 @implementation RKObjectManager (_RRKCreateRequestsFromRoutes)
 
--(RKObjectRequestOperation*)rkk_enqueueRestkitPossibleManagedObjectRequestOperationForRoute:(RKRoute*)route
+-(RKObjectRequestOperation*)rkk_enqueueRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
 																				 parameters:(NSDictionary*)parameters
 																	   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 																					success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
@@ -95,7 +95,7 @@
 																		success:(void (^)(RKObjectRequestOperation *, RKMappingResult *))success
 																		failure:(void (^)(RKObjectRequestOperation *, NSError *))failure
 {
-	return [self rkk_enqueueRestkitManagedObjectRequestOperationForRoute:route parameters:parameters managedObjectContext:nil success:success failure:failure];
+	return [self rkk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route parameters:parameters managedObjectContext:nil success:success failure:failure];
 }
 
 -(RKObjectRequestOperation*)rkk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
@@ -104,7 +104,7 @@
 																			success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 																			failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
 {
-	return [self rkk_enqueueRestkitManagedObjectRequestOperationForRoute:route parameters:parameters managedObjectContext:managedObjectContext success:success failure:failure];
+	return [self rkk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route parameters:parameters managedObjectContext:managedObjectContext success:success failure:failure];
 }
 
 @end
