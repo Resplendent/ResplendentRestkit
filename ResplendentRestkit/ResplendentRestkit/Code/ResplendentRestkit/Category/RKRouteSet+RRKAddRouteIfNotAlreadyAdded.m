@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 Resplendent. All rights reserved.
 //
 
-#import "RRKAddRouteIfNotAlreadyAdded.h"
+#import "RKRouteSet+RRKAddRouteIfNotAlreadyAdded.h"
+
 #import "RUConditionalReturn.h"
 
 
