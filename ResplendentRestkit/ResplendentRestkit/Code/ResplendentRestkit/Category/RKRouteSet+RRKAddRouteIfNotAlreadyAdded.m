@@ -25,9 +25,23 @@
 		return YES;
 	}
 	
-	if (route.isNamedRoute && [self routeForName:route.name])
+	if (route.isNamedRoute)
 	{
-		return YES;
+		return ([self routeForName:route.name] != nil);
+	}
+
+	if (route.isRelationshipRoute)
+	{
+		NSArray *routes = [self routesForRelationship:route.name ofClass:route.objectClass];
+		for (RKRoute *existingRoute in routes)
+		{
+			if (existingRoute.method == route.method)
+			{
+				return YES;
+			}
+		}
+
+		return NO;
 	}
 	
 	return NO;
