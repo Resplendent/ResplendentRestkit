@@ -17,6 +17,12 @@
 
 @interface RKObjectManager (_RRKCreateRequestsFromRoutes)
 
+-(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
+																				object:(id)object
+																			parameters:(NSDictionary*)parameters
+																			   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+																			   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+
 /*
  if managedObjectContext param is nil, will return rrk_enqueueRestkitRequestOperationForRoute, otherwise rrk_enqueueRestkitManagedObjectRequestOperationForRoute
  */
@@ -36,6 +42,27 @@
 
 @implementation RKObjectManager (_RRKCreateRequestsFromRoutes)
 
+-(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
+																		   object:(id)object
+																	   parameters:(NSDictionary*)parameters
+																		  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+																		  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+{
+	if (route.isNamedRoute)
+	{
+		return [self requestWithPathForRouteNamed:route.name object:object parameters:parameters];
+	}
+	else if (route.isRelationshipRoute)
+	{
+		return [self requestWithPathForRelationship:route.name ofObject:object method:route.method parameters:parameters];
+	}
+	else
+	{
+		NSAssert(false, @"unhandled");
+		return nil;
+	}
+}
+
 -(RKObjectRequestOperation*)rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
 																				 object:(id)object
 																			 parameters:(NSDictionary*)parameters
@@ -53,9 +80,9 @@
 		[self cancelAllObjectRequestOperationsWithMethod:route.method matchingPathPattern:route.pathPattern];
 	}
 	
-	NSMutableURLRequest* urlRequest = [self requestWithPathForRouteNamed:route.name object:object parameters:parameters];
+	NSMutableURLRequest* urlRequest = [self rrk_createRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters success:success failure:failure];
 	kRUConditionalReturn_ReturnValueNil(urlRequest == nil, YES);
-	
+
 	RKObjectRequestOperation* requestOperation = (managedObjectContext ?
 												  [self managedObjectRequestOperationWithRequest:urlRequest managedObjectContext:managedObjectContext success:success failure:failure] :
 												  [self objectRequestOperationWithRequest:urlRequest success:success failure:failure]);
