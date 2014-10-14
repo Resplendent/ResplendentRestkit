@@ -17,11 +17,11 @@
 
 @interface RKObjectManager (_RRKCreateRequestsFromRoutes)
 
-//-(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
-//																		   object:(id)object
-//																	   parameters:(NSDictionary*)parameters
-//																		  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-//																		  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+-(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
+																		   object:(id)object
+																	   parameters:(NSDictionary*)parameters
+																		  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+																		  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
 /*
  if managedObjectContext param is nil, will return rrk_enqueueRestkitRequestOperationForRoute, otherwise rrk_enqueueRestkitManagedObjectRequestOperationForRoute
@@ -30,7 +30,7 @@
 																				 object:(id)object
 																			 parameters:(NSDictionary*)parameters
 																	  cancelOldRequests:(BOOL)cancelOldRequests
-//																   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+																   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 																				success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 																				failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
@@ -47,50 +47,42 @@
 
 @implementation RKObjectManager (_RRKCreateRequestsFromRoutes)
 
-//-(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
-//																		   object:(id)object
-//																	   parameters:(NSDictionary*)parameters
-//																		  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-//																		  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
-//{
-//	if (route.isNamedRoute)
-//	{
-//		return [self requestWithPathForRouteNamed:route.name object:object parameters:parameters];
-//	}
-//	else if (route.isRelationshipRoute)
-//	{
-//		return [self requestWithPathForRelationship:route.name ofObject:object method:route.method parameters:parameters];
-//	}
-//	else
-//	{
-//		NSAssert(false, @"unhandled");
-//		return nil;
-//	}
-//}
+-(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
+																		   object:(id)object
+																	   parameters:(NSDictionary*)parameters
+																		  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+																		  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+{
+	if (route.isNamedRoute)
+	{
+		return [self requestWithPathForRouteNamed:route.name object:object parameters:parameters];
+	}
+	else if (route.isRelationshipRoute)
+	{
+		return [self requestWithPathForRelationship:route.name ofObject:object method:route.method parameters:parameters];
+	}
+	else
+	{
+		NSAssert(false, @"unhandled");
+		return nil;
+	}
+}
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
 																				 object:(id)object
 																			 parameters:(NSDictionary*)parameters
 																	  cancelOldRequests:(BOOL)cancelOldRequests
-//																   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+																   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 																				success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 																				failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
 {
 	kRUConditionalReturn_ReturnValueNil(route == nil, YES);
-	
-	[self.router.routeSet rrk_addRouteIfNotAlreadyAdded:route];
-	
-	if (cancelOldRequests)
-	{
-		[self cancelAllObjectRequestOperationsWithMethod:route.method matchingPathPattern:route.pathPattern];
-	}
-	
-//	NSMutableURLRequest* urlRequest = [self rrk_createRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters success:success failure:failure];
 
-//	NSURL *URL = [self.router URLWithRoute:route object:object];
+	[self rrk_addRouteIfNotAlreadyAdded:route cancelOldRequests:cancelOldRequests];
+	
+	NSMutableURLRequest* urlRequest = [self rrk_createRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters success:success failure:failure];
 
-	return [self appropriateObjectRequestOperationWithObject:object method:route.method path:nil parameters:parameters];
-//	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:urlRequest managedObjectContext:managedObjectContext success:success failure:failure];
+	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:urlRequest managedObjectContext:managedObjectContext success:success failure:failure];
 }
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:(NSURLRequest*)urlRequest
@@ -155,20 +147,21 @@
 															   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 															   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
 {
-	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters cancelOldRequests:cancelOldRequests success:success failure:failure];
+	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters cancelOldRequests:cancelOldRequests managedObjectContext:nil success:success failure:failure];
 }
 
-//-(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
-//																			 object:(NSManagedObject*)object
-//																		 parameters:(NSDictionary*)parameters
-//																  cancelOldRequests:(BOOL)cancelOldRequests
-//																			success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-//																			failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
-//{
-//	kRUConditionalReturn_ReturnValueNil(managedObjectContext == nil, YES);
-//
-//	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters cancelOldRequests:cancelOldRequests managedObjectContext:managedObjectContext success:success failure:failure];
-//}
+-(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
+																			 object:(NSManagedObject*)object
+																		 parameters:(NSDictionary*)parameters
+																  cancelOldRequests:(BOOL)cancelOldRequests
+															   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+																			success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+																			failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+{
+	kRUConditionalReturn_ReturnValueNil(managedObjectContext == nil, YES);
+
+	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters cancelOldRequests:cancelOldRequests  managedObjectContext:managedObjectContext success:success failure:failure];
+}
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
 																						 path:(NSString *)path
@@ -246,6 +239,19 @@
 
 	NSAssert(false, @"unhandled");
 	return nil;
+}
+
+#pragma mark - Add Route and cancel
+-(void)rrk_addRouteIfNotAlreadyAdded:(RKRoute*)route cancelOldRequests:(BOOL)cancelOldRequests
+{
+	kRUConditionalReturn(route == nil, YES);
+	
+	[self.router.routeSet rrk_addRouteIfNotAlreadyAdded:route];
+	
+	if (cancelOldRequests)
+	{
+		[self cancelAllObjectRequestOperationsWithMethod:route.method matchingPathPattern:route.pathPattern];
+	}
 }
 
 @end

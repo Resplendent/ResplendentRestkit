@@ -21,6 +21,9 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 
 
 
+/*
+ These methods unfortunately won't get restkit's routing metadata
+ */
 @interface RKObjectManager (RRKCreateRequestsFromRoutes)
 
 //AFNetworking operation
@@ -39,12 +42,13 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 															   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 															   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
-//-(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
-//																			 object:(NSManagedObject*)object
-//																		 parameters:(NSDictionary*)parameters
-//																  cancelOldRequests:(BOOL)cancelOldRequests
-//																			success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-//																			failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+-(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
+																			 object:(NSManagedObject*)object
+																		 parameters:(NSDictionary*)parameters
+																  cancelOldRequests:(BOOL)cancelOldRequests
+															   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+																			success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
+																			failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
 //Multipart Form
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
@@ -79,6 +83,8 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 																			  managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 																						   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 																						   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+
+-(void)rrk_addRouteIfNotAlreadyAdded:(RKRoute*)route cancelOldRequests:(BOOL)cancelOldRequests;
 
 +(NSString*)mimeTypeForImageType:(RRKCreateRequestsFromRoutes_RKObjectManager_ImageType)imageType;
 
