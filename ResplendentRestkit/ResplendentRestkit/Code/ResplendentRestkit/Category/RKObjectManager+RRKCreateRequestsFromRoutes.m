@@ -53,6 +53,9 @@
 																		  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
 																		  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
 {
+	kRUConditionalReturn_ReturnValueNil(route == nil, YES);
+	kRUConditionalReturn_ReturnValueNil(route.isClassRoute, YES);	//Shouldn't get here
+
 	if (route.isNamedRoute)
 	{
 		return [self requestWithPathForRouteNamed:route.name object:object parameters:parameters];
@@ -79,10 +82,24 @@
 	kRUConditionalReturn_ReturnValueNil(route == nil, YES);
 
 	[self rrk_addRouteIfNotAlreadyAdded:route cancelOldRequests:cancelOldRequests];
-	
-	NSMutableURLRequest* urlRequest = [self rrk_createRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters success:success failure:failure];
 
-	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:urlRequest managedObjectContext:managedObjectContext success:success failure:failure];
+	if (route.isClassRoute)
+	{
+		RKObjectRequestOperation* objectRequestOperation = [self appropriateObjectRequestOperationWithObject:object method:route.method path:nil parameters:parameters];
+		kRUConditionalReturn_ReturnValueNil(objectRequestOperation == nil, YES);
+
+		[objectRequestOperation setCompletionBlockWithSuccess:success failure:failure];
+
+		[self enqueueObjectRequestOperation:objectRequestOperation];
+
+		return objectRequestOperation;
+	}
+	else
+	{
+		NSMutableURLRequest* urlRequest = [self rrk_createRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters success:success failure:failure];
+		
+		return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:urlRequest managedObjectContext:managedObjectContext success:success failure:failure];
+	}
 }
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:(NSURLRequest*)urlRequest

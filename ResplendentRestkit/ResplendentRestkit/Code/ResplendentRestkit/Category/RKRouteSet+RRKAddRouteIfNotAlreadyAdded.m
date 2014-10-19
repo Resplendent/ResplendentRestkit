@@ -43,7 +43,13 @@
 
 		return NO;
 	}
-	
+
+	if (route.isClassRoute)
+	{
+		return ([self routeForClass:route.objectClass method:route.method] != nil);
+	}
+
+	NSAssert(false, @"unhandled");
 	return NO;
 }
 
