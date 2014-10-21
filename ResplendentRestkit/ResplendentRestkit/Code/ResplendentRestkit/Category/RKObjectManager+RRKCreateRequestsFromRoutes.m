@@ -15,6 +15,12 @@
 
 
 
+#define kRKObjectManager__enqueueRestkitAppropriateObjectRequestOperation_UseNativeMethodAndOperationsHackIfGetOperationsAndRelationshipRoute (1)	//Necessary for routing
+
+
+
+
+
 @interface RKObjectManager (_RRKCreateRequestsFromRoutes)
 
 -(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
@@ -82,6 +88,25 @@
 	kRUConditionalReturn_ReturnValueNil(route == nil, YES);
 
 	[self rrk_addRouteIfNotAlreadyAdded:route cancelOldRequests:cancelOldRequests];
+
+#if kRKObjectManager__enqueueRestkitAppropriateObjectRequestOperation_UseNativeMethodAndOperationsHackIfGetOperationsAndRelationshipRoute
+	if ((route.method == RKRequestMethodGET) &&
+		(route.isRelationshipRoute))
+	{
+		NSArray* previousOperationsArray = [self.operationQueue.operations copy];
+
+		[self getObjectsAtPathForRelationship:route.name ofObject:object parameters:parameters success:success failure:failure];
+
+		NSMutableArray* newOperationsArray = [NSMutableArray arrayWithArray:self.operationQueue.operations];
+		[newOperationsArray removeObjectsInArray:previousOperationsArray];
+		NSAssert(newOperationsArray.count == 1, @"shouldn't only be 1 new operation");
+
+		RKObjectRequestOperation* newOperation = kRUClassOrNil(newOperationsArray.lastObject, RKObjectRequestOperation);
+		NSAssert(newOperation != nil, @"bad operation");
+
+		return newOperation;
+	}
+#endif
 
 	if (route.isClassRoute)
 	{
