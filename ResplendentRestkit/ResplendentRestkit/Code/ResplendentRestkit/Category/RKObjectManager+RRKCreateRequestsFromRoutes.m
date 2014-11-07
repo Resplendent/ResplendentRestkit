@@ -256,7 +256,7 @@
 		[formData appendPartWithFileData:UIImagePNGRepresentation(pngImage)
 									name:@"filename"
 								fileName:@"photo.png"
-								mimeType:@"image/png"];
+								mimeType:[self.class mimeTypeForImageType:RRKCreateRequestsFromRoutes_RKObjectManager_ImageType_PNG]];
 
 	} cancelOldRequests:cancelOldRequests managedObjectContext:managedObjectContext success:success failure:failure];
 }
