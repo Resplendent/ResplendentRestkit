@@ -8,8 +8,8 @@
 
 #import "RKObjectManager+RRKCreateRequestsFromRoutes.h"
 #import "RKRouteSet+RRKAddRouteIfNotAlreadyAdded.h"
-
 #import "RUConditionalReturn.h"
+#import "RKObjectManager+RRKRequests.h"
 
 
 
