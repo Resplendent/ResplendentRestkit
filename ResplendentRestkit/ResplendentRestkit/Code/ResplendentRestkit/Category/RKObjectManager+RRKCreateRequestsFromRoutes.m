@@ -93,18 +93,11 @@
 	if ((route.method == RKRequestMethodGET) &&
 		(route.isRelationshipRoute))
 	{
-		NSArray* previousOperationsArray = [self.operationQueue.operations copy];
-
-		[self getObjectsAtPathForRelationship:route.name ofObject:object parameters:parameters success:success failure:failure];
-
-		NSMutableArray* newOperationsArray = [NSMutableArray arrayWithArray:self.operationQueue.operations];
-		[newOperationsArray removeObjectsInArray:previousOperationsArray];
-		NSAssert(newOperationsArray.count == 1, @"shouldn't only be 1 new operation");
-
-		RKObjectRequestOperation* newOperation = kRUClassOrNil(newOperationsArray.lastObject, RKObjectRequestOperation);
-		NSAssert(newOperation != nil, @"bad operation");
-
-		return newOperation;
+		return [self rrk_getRequestCreatedAfterPerformingBlock:^{
+			
+			[self getObjectsAtPathForRelationship:route.name ofObject:object parameters:parameters success:success failure:failure];
+			
+		}];
 	}
 #endif
 
