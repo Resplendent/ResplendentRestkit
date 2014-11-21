@@ -8,6 +8,7 @@
 
 #import "RKObjectManager+RRKRequests.h"
 #import "RUConditionalReturn.h"
+#import "RUClassOrNilUtil.h"
 
 
 
