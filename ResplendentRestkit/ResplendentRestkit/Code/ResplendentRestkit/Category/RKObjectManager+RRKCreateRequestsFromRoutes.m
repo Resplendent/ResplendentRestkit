@@ -90,14 +90,25 @@
 	[self rrk_addRouteIfNotAlreadyAdded:route cancelOldRequests:cancelOldRequests];
 
 #if kRKObjectManager__enqueueRestkitAppropriateObjectRequestOperation_UseNativeMethodAndOperationsHackIfGetOperationsAndRelationshipRoute
-	if ((route.method == RKRequestMethodGET) &&
-		(route.isRelationshipRoute))
+	if (route.method == RKRequestMethodGET)
 	{
-		return [self rrk_getRequestCreatedAfterPerformingBlock:^{
-			
-			[self getObjectsAtPathForRelationship:route.name ofObject:object parameters:parameters success:success failure:failure];
-			
-		}];
+		if (route.isRelationshipRoute)
+		{
+			return [self rrk_getRequestCreatedAfterPerformingBlock:^{
+				
+				[self getObjectsAtPathForRelationship:route.name ofObject:object parameters:parameters success:success failure:failure];
+				
+			}];
+		}
+		else if (route.isNamedRoute)
+		{
+			return [self rrk_getRequestCreatedAfterPerformingBlock:^{
+
+				[self getObjectsAtPathForRouteNamed:route.name object:object parameters:parameters success:success failure:failure];
+				
+			}];
+		}
+		
 	}
 #endif
 
