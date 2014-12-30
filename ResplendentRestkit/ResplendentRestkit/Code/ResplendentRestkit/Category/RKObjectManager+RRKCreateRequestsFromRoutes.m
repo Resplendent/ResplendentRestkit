@@ -26,8 +26,8 @@
 -(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
 																		   object:(id)object
 																	   parameters:(NSDictionary*)parameters
-																		  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																		  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+																		  success:(rrk_rkOperationAndMappingResultBlock)success
+																		  failure:(rrk_rkOperationAndErrorBlock)failure;
 
 /*
  if managedObjectContext param is nil, will return rrk_enqueueRestkitRequestOperationForRoute, otherwise rrk_enqueueRestkitManagedObjectRequestOperationForRoute
@@ -37,13 +37,14 @@
 																			 parameters:(NSDictionary*)parameters
 																	  cancelOldRequests:(BOOL)cancelOldRequests
 																   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																				success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																				failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+																				success:(rrk_rkOperationAndMappingResultBlock)success
+																				failure:(rrk_rkOperationAndErrorBlock)failure;
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:(NSURLRequest*)urlRequest
 																		managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																					 success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																					 failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+																		 uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
+																					 success:(rrk_rkOperationAndMappingResultBlock)success
+																					 failure:(rrk_rkOperationAndErrorBlock)failure;
 
 @end
 
@@ -56,8 +57,8 @@
 -(NSMutableURLRequest*)rrk_createRestkitAppropriateObjectRequestOperationForRoute:(RKRoute*)route
 																		   object:(id)object
 																	   parameters:(NSDictionary*)parameters
-																		  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																		  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+																		  success:(rrk_rkOperationAndMappingResultBlock)success
+																		  failure:(rrk_rkOperationAndErrorBlock)failure
 {
 	kRUConditionalReturn_ReturnValueNil(route == nil, YES);
 	kRUConditionalReturn_ReturnValueNil(route.isClassRoute, YES);	//Shouldn't get here
@@ -82,8 +83,8 @@
 																			 parameters:(NSDictionary*)parameters
 																	  cancelOldRequests:(BOOL)cancelOldRequests
 																   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																				success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																				failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+																				success:(rrk_rkOperationAndMappingResultBlock)success
+																				failure:(rrk_rkOperationAndErrorBlock)failure
 {
 	kRUConditionalReturn_ReturnValueNil(route == nil, YES);
 
@@ -127,20 +128,23 @@
 	{
 		NSMutableURLRequest* urlRequest = [self rrk_createRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters success:success failure:failure];
 		
-		return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:urlRequest managedObjectContext:managedObjectContext success:success failure:failure];
+		return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:urlRequest managedObjectContext:managedObjectContext uploadProgressBlock:nil success:success failure:failure];
 	}
 }
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:(NSURLRequest*)urlRequest
 																		managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																					 success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																					 failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+																		 uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
+																					 success:(rrk_rkOperationAndMappingResultBlock)success
+																					 failure:(rrk_rkOperationAndErrorBlock)failure
 {
 	kRUConditionalReturn_ReturnValueNil(urlRequest == nil, YES);
 
 	RKObjectRequestOperation* requestOperation = (managedObjectContext ?
 												  [self managedObjectRequestOperationWithRequest:urlRequest managedObjectContext:managedObjectContext success:success failure:failure] :
 												  [self objectRequestOperationWithRequest:urlRequest success:success failure:failure]);
+
+	[requestOperation.HTTPRequestOperation setUploadProgressBlock:uploadProgressBlock];
 	
 	[self enqueueObjectRequestOperation:requestOperation];
 	
@@ -160,8 +164,8 @@
 																   object:(id)object
 															   parameters:(NSDictionary*)parameters
 														cancelOldRequests:(BOOL)cancelOldRequests
-																  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-																  failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+																  success:(rrk_afOperationAndResponseObjectBlock)success
+																  failure:(rrk_afOperationAndErrorBlock)failure
 {
 	kRUConditionalReturn_ReturnValueNil(route == nil, YES);
 
@@ -177,7 +181,7 @@
 	{
 		[self.HTTPClient cancelAllHTTPOperationsWithMethod:requestOperation.request.HTTPMethod path:requestOperation.request.URL.path];
 	}
-	
+
 	[requestOperation setCompletionBlockWithSuccess:success failure:failure];
 	
 	[self.HTTPClient enqueueHTTPRequestOperation:requestOperation];
@@ -190,8 +194,8 @@
 																object:(id)object
 															parameters:(NSDictionary*)parameters
 													 cancelOldRequests:(BOOL)cancelOldRequests
-															   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-															   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+															   success:(rrk_rkOperationAndMappingResultBlock)success
+															   failure:(rrk_rkOperationAndErrorBlock)failure
 {
 	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters cancelOldRequests:cancelOldRequests managedObjectContext:nil success:success failure:failure];
 }
@@ -201,8 +205,8 @@
 																		 parameters:(NSDictionary*)parameters
 																  cancelOldRequests:(BOOL)cancelOldRequests
 															   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																			success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																			failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+																			success:(rrk_rkOperationAndMappingResultBlock)success
+																			failure:(rrk_rkOperationAndErrorBlock)failure
 {
 	kRUConditionalReturn_ReturnValueNil(managedObjectContext == nil, YES);
 
@@ -219,8 +223,9 @@
 																					 mimeType:(NSString*)mimeType
 																			cancelOldRequests:(BOOL)cancelOldRequests
 																		 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																					  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																					  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+																		  uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
+																					  success:(rrk_rkOperationAndMappingResultBlock)success
+																					  failure:(rrk_rkOperationAndErrorBlock)failure
 {
 	return [self rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:method path:path parameters:parameters object:object formBlock:^(id<AFMultipartFormData> formData) {
 		
@@ -234,7 +239,7 @@
 //								fileName:@"photo.jpg"
 //								mimeType:@"image/jpeg"];
 
-	} cancelOldRequests:cancelOldRequests managedObjectContext:managedObjectContext success:success failure:failure];
+	} cancelOldRequests:cancelOldRequests managedObjectContext:managedObjectContext uploadProgressBlock:uploadProgressBlock success:success failure:failure];
 }
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
@@ -244,12 +249,13 @@
 																					formBlock:(void (^)(id <AFMultipartFormData> formData))formBlock
 																			cancelOldRequests:(BOOL)cancelOldRequests
 																		 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																					  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																					  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+																		  uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
+																					  success:(rrk_rkOperationAndMappingResultBlock)success
+																					  failure:(rrk_rkOperationAndErrorBlock)failure
 {
 	NSMutableURLRequest* urlRequest = [self multipartFormRequestWithObject:object method:method path:path parameters:parameters constructingBodyWithBlock:formBlock];
 
-	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:urlRequest managedObjectContext:managedObjectContext success:success failure:failure];
+	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForUrlRequest:urlRequest managedObjectContext:managedObjectContext uploadProgressBlock:uploadProgressBlock success:success failure:failure];
 }
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectPNGImageUploadRequestOperationForMethod:(RKRequestMethod)method
@@ -259,8 +265,9 @@
 																							object:(NSManagedObject*)object
 																				 cancelOldRequests:(BOOL)cancelOldRequests
 																			  managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																						   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																						   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure
+																			   uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
+																						   success:(rrk_rkOperationAndMappingResultBlock)success
+																						   failure:(rrk_rkOperationAndErrorBlock)failure
 {
 	return [self rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:method path:path parameters:parameters object:object formBlock:^(id<AFMultipartFormData> formData) {
 
@@ -269,7 +276,7 @@
 								fileName:@"photo.png"
 								mimeType:[self.class mimeTypeForImageType:RRKCreateRequestsFromRoutes_RKObjectManager_ImageType_PNG]];
 
-	} cancelOldRequests:cancelOldRequests managedObjectContext:managedObjectContext success:success failure:failure];
+	} cancelOldRequests:cancelOldRequests managedObjectContext:managedObjectContext uploadProgressBlock:uploadProgressBlock success:success failure:failure];
 }
 
 #pragma mark - Image Type

@@ -17,6 +17,12 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 	RRKCreateRequestsFromRoutes_RKObjectManager_ImageType_PNG
 };
 
+typedef void(^rrk_rkOperationAndMappingResultBlock) (RKObjectRequestOperation *operation, RKMappingResult *mappingResult);
+typedef void(^rrk_rkOperationAndErrorBlock) (RKObjectRequestOperation *operation, NSError *error);
+typedef void(^rrk_afOperationAndResponseObjectBlock) (AFHTTPRequestOperation *operation, id responseObject);
+typedef void(^rrk_afOperationAndErrorBlock) (AFHTTPRequestOperation *operation, NSError *error);
+typedef void(^rrk_uploadProgressBlock) (NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite);
+
 
 
 
@@ -31,24 +37,24 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 																   object:(id)object
 															   parameters:(NSDictionary*)parameters
 														cancelOldRequests:(BOOL)cancelOldRequests
-																  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-																  failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+																  success:(rrk_afOperationAndResponseObjectBlock)success
+																  failure:(rrk_afOperationAndErrorBlock)failure;
 
 //Restkit operation
 -(RKObjectRequestOperation*)rrk_enqueueRestkitRequestOperationForRoute:(RKRoute*)route
 																object:(id)object
 															parameters:(NSDictionary*)parameters
 													 cancelOldRequests:(BOOL)cancelOldRequests
-															   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-															   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+															   success:(rrk_rkOperationAndMappingResultBlock)success
+															   failure:(rrk_rkOperationAndErrorBlock)failure;
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
 																			 object:(NSManagedObject*)object
 																		 parameters:(NSDictionary*)parameters
 																  cancelOldRequests:(BOOL)cancelOldRequests
 															   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																			success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																			failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+																			success:(rrk_rkOperationAndMappingResultBlock)success
+																			failure:(rrk_rkOperationAndErrorBlock)failure;
 
 //Multipart Form
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
@@ -58,8 +64,9 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 																					formBlock:(void (^)(id <AFMultipartFormData> formData))formBlock
 																			cancelOldRequests:(BOOL)cancelOldRequests
 																		 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																					  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																					  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+																		  uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
+																					  success:(rrk_rkOperationAndMappingResultBlock)success
+																					  failure:(rrk_rkOperationAndErrorBlock)failure;
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
 																						 path:(NSString *)path
@@ -71,8 +78,9 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 																					 mimeType:(NSString*)mimeType
 																			cancelOldRequests:(BOOL)cancelOldRequests
 																		 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																					  success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																					  failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+																		  uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
+																					  success:(rrk_rkOperationAndMappingResultBlock)success
+																					  failure:(rrk_rkOperationAndErrorBlock)failure;
 
 -(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectPNGImageUploadRequestOperationForMethod:(RKRequestMethod)method
 																							  path:(NSString *)path
@@ -81,8 +89,9 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 																							object:(NSManagedObject*)object
 																				 cancelOldRequests:(BOOL)cancelOldRequests
 																			  managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																						   success:(void (^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success
-																						   failure:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure;
+																			   uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
+																						   success:(rrk_rkOperationAndMappingResultBlock)success
+																						   failure:(rrk_rkOperationAndErrorBlock)failure;
 
 -(void)rrk_addRouteIfNotAlreadyAdded:(RKRoute*)route cancelOldRequests:(BOOL)cancelOldRequests;
 
