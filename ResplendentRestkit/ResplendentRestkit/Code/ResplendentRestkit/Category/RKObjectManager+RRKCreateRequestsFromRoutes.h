@@ -7,6 +7,7 @@
 //
 
 #import "RKObjectManager.h"
+#import "RRKBlocks.h"
 
 
 
@@ -16,12 +17,6 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 	RRKCreateRequestsFromRoutes_RKObjectManager_ImageType_JPEG,
 	RRKCreateRequestsFromRoutes_RKObjectManager_ImageType_PNG
 };
-
-typedef void(^rrk_rkOperationAndMappingResultBlock) (RKObjectRequestOperation *operation, RKMappingResult *mappingResult);
-typedef void(^rrk_rkOperationAndErrorBlock) (RKObjectRequestOperation *operation, NSError *error);
-typedef void(^rrk_afOperationAndResponseObjectBlock) (AFHTTPRequestOperation *operation, id responseObject);
-typedef void(^rrk_afOperationAndErrorBlock) (AFHTTPRequestOperation *operation, NSError *error);
-typedef void(^rrk_uploadProgressBlock) (NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite);
 
 
 
