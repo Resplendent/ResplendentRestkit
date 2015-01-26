@@ -9,6 +9,7 @@
 #import "RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.h"
 
 #import <RestKit.h>
+#import "RUClassOrNilUtil.h"
 
 
 
@@ -110,6 +111,25 @@
 	}
 	
 	[self addRequestDescriptor:requestDescriptor];
+}
+
+#pragma mark - Response Descriptors
+-(void)rrk_addResponseDescriptorsIfDoesNotAlreadyExistWithKeyPathToMappingDictionary:(NSDictionary *)keyPathToMappingDictionary
+																			  method:(RKRequestMethod)method
+																		 pathPattern:(NSString *)pathPattern
+																		 statusCodes:(NSIndexSet *)statusCodes
+{
+	//Response Descriptor
+	[keyPathToMappingDictionary enumerateKeysAndObjectsUsingBlock:^(id keyPathOrNull, RKMapping* entityMapping, BOOL *stop) {
+		
+		NSString* keyPath = kRUStringOrNil(keyPathOrNull);
+		[self rrk_addResponseDescriptorIfDoesNotAlreadyExist:[RKResponseDescriptor responseDescriptorWithMapping:entityMapping
+																												   method:method
+																											  pathPattern:pathPattern
+																												  keyPath:keyPath
+																											  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+		
+	}];
 }
 
 @end

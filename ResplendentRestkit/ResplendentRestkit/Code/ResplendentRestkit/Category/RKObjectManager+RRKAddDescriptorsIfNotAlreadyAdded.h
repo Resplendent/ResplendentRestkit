@@ -17,4 +17,9 @@
 -(void)rrk_addResponseDescriptorIfDoesNotAlreadyExist:(RKResponseDescriptor*)responseDescriptor;
 -(void)rrk_addRequestDescriptorIfDoesNotAlreadyExist:(RKRequestDescriptor*)requestDescriptor;
 
+-(void)rrk_addResponseDescriptorsIfDoesNotAlreadyExistWithKeyPathToMappingDictionary:(NSDictionary *)keyPathToMappingDictionary
+																			  method:(RKRequestMethod)method
+																		 pathPattern:(NSString *)pathPattern
+																		 statusCodes:(NSIndexSet *)statusCodes;
+
 @end
