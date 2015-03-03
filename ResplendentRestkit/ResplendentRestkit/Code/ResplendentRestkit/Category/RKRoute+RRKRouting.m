@@ -20,7 +20,7 @@
 +(instancetype)rrk_RouteWithName:(NSString*)name pathPattern:(NSString*)pathPattern requestMethod:(RKRequestMethod)requestMethod objectClass:(Class)objectClass
 {
 	kRUConditionalReturn_ReturnValueNil(name.length == 0, YES);
-	kRUConditionalReturn_ReturnValueNil(pathPattern.length == 0, YES);
+	kRUConditionalReturn_ReturnValueNil(pathPattern == nil, YES);
 	
 	if (objectClass)
 	{
