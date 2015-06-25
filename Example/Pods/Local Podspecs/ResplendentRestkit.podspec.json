@@ -24,10 +24,10 @@
   },
   "dependencies": {
     "ResplendentUtilities": [
-      "0.2.7"
+      "~> 0.2"
     ],
     "RestKit": [
-      "0.23.1"
+      "0.24.1"
     ]
   }
 }

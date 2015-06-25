@@ -10,7 +10,9 @@
 
 #import "RUConditionalReturn.h"
 #import "RUClassOrNilUtil.h"
-//#import <RestKit.h>
+
+#import "RestKit.h"
+
 
 
 
@@ -20,7 +22,7 @@
 -(RKPropertyMapping*)rrk_RKPropertyMappingForDestinationKeyPath:(NSString*)destinationKeyPath
 {
 	id propertyMapping = [self objectForKey:destinationKeyPath];
-	//kRUConditionalReturn_ReturnValueNil(kRUClassOrNil(propertyMapping, RKPropertyMapping) == nil, YES);
+	kRUConditionalReturn_ReturnValueNil(kRUClassOrNil(propertyMapping, RKPropertyMapping) == nil, YES);
 	
 	return propertyMapping;
 }

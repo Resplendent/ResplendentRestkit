@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/ResplendentRestkit/Category/RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.h
+../../../../../Pod/Classes/Category/RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.h

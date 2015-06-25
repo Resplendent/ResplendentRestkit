@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/ResplendentRestkit/Misc/RRKBlocks.h
+../../../../../Pod/Classes/Misc/RRKBlocks.h

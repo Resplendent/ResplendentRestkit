@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/ResplendentRestkit/Category/RKObjectManager+RRKRequests.h
+../../../../../Pod/Classes/Category/RKObjectManager+RRKRequests.h
