@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "793035E217F06223C9F7ACC3"
+               BlueprintIdentifier = "2CE9330C733B64E24159F066"
                BuildableName = "libPods-ResplendentRestkit_Tests-ResplendentRestkit.a"
                BlueprintName = "Pods-ResplendentRestkit_Tests-ResplendentRestkit"
                ReferencedContainer = "container:Pods.xcodeproj">
