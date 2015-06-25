@@ -22,7 +22,6 @@
       "Pod/Assets/*.png"
     ]
   },
-  "frameworks": "CoreData",
   "dependencies": {
     "ResplendentUtilities": [
       "~> 0.2"

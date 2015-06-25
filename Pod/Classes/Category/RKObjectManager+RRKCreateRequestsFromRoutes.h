@@ -9,9 +9,9 @@
 #import "RKObjectManager.h"
 #import "RRKBlocks.h"
 
-#import <CoreData.h>
 
 
+@class NSObjectManager;
 
 
 
