@@ -52,7 +52,7 @@ SPEC CHECKSUMS:
   Expecta+Snapshots: ca15bfb57e7a0f78f86c7699c2c54ffacfa4ad2a
   FBSnapshotTestCase: 3dc3899168747a0319c5278f5b3445c13a6532dd
   ISO8601DateFormatterValueTransformer: 3ac3a721381697cab4e792d8049ce2f2e9ad3036
-  ResplendentRestkit: 077c6978d410a07aaed86ff4e1bfdf98313964d6
+  ResplendentRestkit: 3d15ef6e652cc1b4ecafd587cec81991fbe840f2
   ResplendentUtilities: fec98a58db6572b436b7deb151e091ba3cd301c6
   RestKit: 1987b5efef289c6b27bd980714d6ca48d3871b78
   RKValueTransformers: 66ac5e4f077fdbe3496e792d89eeff4c3eb67701
