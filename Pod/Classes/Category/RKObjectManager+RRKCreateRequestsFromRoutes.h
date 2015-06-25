@@ -8,7 +8,7 @@
 
 #import "RKObjectManager.h"
 #import "RRKBlocks.h"
-
+#import "RestKit.h"
 
 
 @class NSObjectManager;
