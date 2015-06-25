@@ -1,0 +1,6 @@
+framework module TransitionKit {
+  umbrella header "Pods-ResplendentRestkit_Example-TransitionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

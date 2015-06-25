@@ -1,0 +1,6 @@
+framework module ResplendentRestkit {
+  umbrella header "Pods-ResplendentRestkit_Example-ResplendentRestkit-umbrella.h"
+
+  export *
+  module * { export * }
+}

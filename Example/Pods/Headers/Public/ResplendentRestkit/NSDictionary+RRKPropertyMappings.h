@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/ResplendentRestkit/Category/NSDictionary+RRKPropertyMappings.h

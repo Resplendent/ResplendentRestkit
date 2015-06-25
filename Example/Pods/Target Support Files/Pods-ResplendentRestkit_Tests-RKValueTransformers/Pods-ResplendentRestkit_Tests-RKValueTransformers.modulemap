@@ -1,0 +1,6 @@
+framework module RKValueTransformers {
+  umbrella header "Pods-ResplendentRestkit_Tests-RKValueTransformers-umbrella.h"
+
+  export *
+  module * { export * }
+}
