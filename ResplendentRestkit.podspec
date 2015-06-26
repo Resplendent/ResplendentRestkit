@@ -10,24 +10,24 @@
 Pod::Spec.new do |s|
   s.name             = "ResplendentRestkit"
   s.version          = "0.1.0"
-  s.summary          = "A short description of ResplendentRestkit."
-  s.description      = <<-DESC
-                       An optional longer description of ResplendentRestkit
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/ResplendentRestkit"
+  s.summary          = "A set of of tools to facilitate common Restkit usage."
+# s.description      = <<-DESC
+#                        An optional longer description of ResplendentRestkit
+#
+#                        * Markdown format.
+#                        * Don't worry about the indent, we strip it!
+#                        DESC
+  s.homepage         = "https://github.com/Resplendent/ResplendentRestkit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Richard Reitzfeld" => "richie.reitzfeld@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/ResplendentRestkit.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/Resplendent/ResplendentRestkit.git", :tag => "v#{s.version}"}
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.prefix_header_contents = '#import <CoreData.h>'
+  s.prefix_header_contents = '#import <CoreData.h>', '#import <SystemConfiguration/SystemConfiguration.h>', '#import <MobileCoreServices/MobileCoreServices.h>'
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
