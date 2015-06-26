@@ -27,6 +27,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
+  s.prefix_header_contents = '#import <CoreData.h>'
+
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
     'ResplendentRestkit' => ['Pod/Assets/*.png']

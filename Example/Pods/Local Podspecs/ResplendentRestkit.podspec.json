@@ -16,6 +16,7 @@
     "ios": "7.0"
   },
   "requires_arc": true,
+  "prefix_header_contents": "#import <CoreData.h>",
   "source_files": "Pod/Classes/**/*",
   "resource_bundles": {
     "ResplendentRestkit": [

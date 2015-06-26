@@ -3,3 +3,4 @@
 #endif
 
 #import "Pods-ResplendentRestkit_Tests-environment.h"
+#import <CoreData.h>
