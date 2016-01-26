@@ -1,6 +1,6 @@
 {
   "name": "ResplendentRestkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "A set of of tools to facilitate common Restkit usage.",
   "homepage": "https://github.com/Resplendent/ResplendentRestkit",
   "license": "MIT",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/Resplendent/ResplendentRestkit.git",
-    "tag": "v0.1.0"
+    "tag": "v0.1.1"
   },
   "platforms": {
     "ios": "7.0"

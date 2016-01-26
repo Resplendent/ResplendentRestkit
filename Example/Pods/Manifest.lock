@@ -11,7 +11,7 @@ PODS:
     - FBSnapshotTestCase/Core
   - ISO8601DateFormatterValueTransformer (0.6.1):
     - RKValueTransformers (~> 1.1.0)
-  - ResplendentRestkit (0.1.0):
+  - ResplendentRestkit (0.1.1):
     - ResplendentUtilities (~> 0.4.0)
     - RestKit (= 0.24.1)
   - ResplendentUtilities (0.4.0)
@@ -56,7 +56,7 @@ SPEC CHECKSUMS:
   Expecta+Snapshots: 29b38dd695bc72a0ed2bea833937d78df41943ba
   FBSnapshotTestCase: 7e85180d0d141a0cf472352edda7e80d7eaeb547
   ISO8601DateFormatterValueTransformer: 52da467d6ec899d6aedda8e48280ac92e8ee97e6
-  ResplendentRestkit: 6bf6e34602c13b62a67ceb96f8e7e2ae4c99fbf8
+  ResplendentRestkit: 92da80e124696f10e62465cb25b9263c5c01c55c
   ResplendentUtilities: 734bedd9bb7ea5d0a20539e1f2ae9e46535964d6
   RestKit: 1987b5efef289c6b27bd980714d6ca48d3871b78
   RKValueTransformers: 66ac5e4f077fdbe3496e792d89eeff4c3eb67701
