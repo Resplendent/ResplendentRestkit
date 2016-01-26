@@ -10,13 +10,15 @@
 
 #import "RUConditionalReturn.h"
 
+#import "RKHTTPUtilities.h"
+
 
 
 
 
 @implementation RKRouteSet (RRKAddRouteIfNotAlreadyAdded)
 
--(BOOL)rrk_containsRoute:(RKRoute *)route
+-(BOOL)rrk_containsRoute:(nonnull RKRoute*)route
 {
 	kRUConditionalReturn_ReturnValueFalse(route == nil, YES);
 	
@@ -53,8 +55,9 @@
 	return NO;
 }
 
--(void)rrk_addRouteIfNotAlreadyAdded:(RKRoute *)route
+-(void)rrk_addRouteIfNotAlreadyAdded:(nonnull RKRoute*)route
 {
+	kRUConditionalReturn(route == nil, YES);
 	kRUConditionalReturn([self rrk_containsRoute:route], NO);
 	
 	[self addRoute:route];

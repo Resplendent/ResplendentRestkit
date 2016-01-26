@@ -7,6 +7,7 @@
 //
 
 #import "RKObjectManager.h"
+#import "RKHTTPUtilities.h"
 
 
 

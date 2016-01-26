@@ -7,6 +7,7 @@
 //
 
 #import "RKRouteSet.h"
+#import "RKRoute.h"
 
 
 
@@ -14,7 +15,7 @@
 
 @interface RKRouteSet (RRKAddRouteIfNotAlreadyAdded)
 
--(BOOL)rrk_containsRoute:(RKRoute *)route;
--(void)rrk_addRouteIfNotAlreadyAdded:(RKRoute *)route;
+-(BOOL)rrk_containsRoute:(nonnull RKRoute*)route;
+-(void)rrk_addRouteIfNotAlreadyAdded:(nonnull RKRoute*)route;
 
 @end

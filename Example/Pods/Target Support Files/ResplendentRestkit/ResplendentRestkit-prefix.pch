@@ -2,6 +2,5 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import <CoreData.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <MobileCoreServices/MobileCoreServices.h>

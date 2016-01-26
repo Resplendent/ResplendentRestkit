@@ -7,6 +7,7 @@
 //
 
 #import "RKRoute.h"
+#import "RKHTTPUtilities.h"
 
 
 

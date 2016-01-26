@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.prefix_header_contents = '#import <CoreData.h>', '#import <SystemConfiguration/SystemConfiguration.h>', '#import <MobileCoreServices/MobileCoreServices.h>'
+  s.prefix_header_contents = '#import <SystemConfiguration/SystemConfiguration.h>', '#import <MobileCoreServices/MobileCoreServices.h>'
 
   s.source_files = 'Pod/Classes/**/*'
   s.resource_bundles = {
@@ -39,6 +39,9 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+  s.framework    = 'CoreData'
   s.dependency 'ResplendentUtilities', '~> 0.4.0'
-  s.dependency 'RestKit', '0.24.1'
+  s.dependency 'RestKit', '~> 0.26.0'
+  s.dependency 'AFNetworking', '~> 1.3.4'
+
 end

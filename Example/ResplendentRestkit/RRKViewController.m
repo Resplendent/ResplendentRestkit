@@ -1,18 +1,18 @@
 //
-//  RRViewController.m
+//  RRKViewController.m
 //  ResplendentRestkit
 //
-//  Created by Richard Reitzfeld on 06/25/2015.
-//  Copyright (c) 2014 Richard Reitzfeld. All rights reserved.
+//  Created by Benjamin Maer on 01/26/2016.
+//  Copyright (c) 2016 Benjamin Maer. All rights reserved.
 //
 
-#import "RRViewController.h"
+#import "RRKViewController.h"
 
-@interface RRViewController ()
+@interface RRKViewController ()
 
 @end
 
-@implementation RRViewController
+@implementation RRKViewController
 
 - (void)viewDidLoad
 {

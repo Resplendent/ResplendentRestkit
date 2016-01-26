@@ -10,6 +10,8 @@
 #import "RUConditionalReturn.h"
 #import "RUClassOrNilUtil.h"
 
+#import "RKObjectRequestOperation.h"
+
 
 
 

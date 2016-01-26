@@ -17,7 +17,6 @@
   },
   "requires_arc": true,
   "prefix_header_contents": [
-    "#import <CoreData.h>",
     "#import <SystemConfiguration/SystemConfiguration.h>",
     "#import <MobileCoreServices/MobileCoreServices.h>"
   ],
@@ -27,12 +26,16 @@
       "Pod/Assets/*.png"
     ]
   },
+  "frameworks": "CoreData",
   "dependencies": {
     "ResplendentUtilities": [
       "~> 0.4.0"
     ],
     "RestKit": [
-      "0.24.1"
+      "~> 0.26.0"
+    ],
+    "AFNetworking": [
+      "~> 1.3.4"
     ]
   }
 }

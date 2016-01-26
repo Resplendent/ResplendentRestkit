@@ -2,16 +2,16 @@
 //  main.m
 //  ResplendentRestkit
 //
-//  Created by Richard Reitzfeld on 06/25/2015.
-//  Copyright (c) 2014 Richard Reitzfeld. All rights reserved.
+//  Created by Benjamin Maer on 01/26/2016.
+//  Copyright (c) 2016 Benjamin Maer. All rights reserved.
 //
 
 @import UIKit;
-#import "RRAppDelegate.h"
+#import "RRKAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([RRAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([RRKAppDelegate class]));
     }
 }

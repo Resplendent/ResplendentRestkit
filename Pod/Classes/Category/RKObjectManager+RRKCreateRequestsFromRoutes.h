@@ -6,12 +6,22 @@
 //  Copyright (c) 2014 Resplendent. All rights reserved.
 //
 
+@import CoreData;
+
 #import "RKObjectManager.h"
 #import "RRKBlocks.h"
 #import "RestKit.h"
+#import "RKRoute.h"
+#import "RKHTTPUtilities.h"
+
+
+
 
 
 @class NSObjectManager;
+
+
+
 
 
 
@@ -29,69 +39,71 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
  */
 @interface RKObjectManager (RRKCreateRequestsFromRoutes)
 
-//AFNetworking operation
--(AFHTTPRequestOperation*)rrk_enqueueAFNetworkingRequestOperationForRoute:(RKRoute*)route
-																   object:(id)object
-															   parameters:(NSDictionary*)parameters
-														cancelOldRequests:(BOOL)cancelOldRequests
-																  success:(rrk_afOperationAndResponseObjectBlock)success
-																  failure:(rrk_afOperationAndErrorBlock)failure;
+#pragma mark - AFNetworking Requests
+-(nullable AFHTTPRequestOperation*)rrk_enqueueAFNetworkingRequestOperationForRoute:(nonnull RKRoute*)route
+																			object:(nullable id)object
+																		parameters:(nullable NSDictionary*)parameters
+																 cancelOldRequests:(BOOL)cancelOldRequests
+																		   success:(nullable rrk_afOperationAndResponseObjectBlock)success
+																		   failure:(nullable rrk_afOperationAndErrorBlock)failure;
 
-//Restkit operation
--(RKObjectRequestOperation*)rrk_enqueueRestkitRequestOperationForRoute:(RKRoute*)route
-																object:(id)object
-															parameters:(NSDictionary*)parameters
-													 cancelOldRequests:(BOOL)cancelOldRequests
-															   success:(rrk_rkOperationAndMappingResultBlock)success
-															   failure:(rrk_rkOperationAndErrorBlock)failure;
+#pragma mark - Restkit requests
+-(nullable RKObjectRequestOperation*)rrk_enqueueRestkitRequestOperationForRoute:(nonnull RKRoute*)route
+																		 object:(nullable id)object
+																	 parameters:(nullable NSDictionary*)parameters
+															  cancelOldRequests:(BOOL)cancelOldRequests
+																		success:(nullable rrk_rkOperationAndMappingResultBlock)success
+																		failure:(nullable rrk_rkOperationAndErrorBlock)failure;
 
--(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
-																			 object:(NSManagedObject*)object
-																		 parameters:(NSDictionary*)parameters
-																  cancelOldRequests:(BOOL)cancelOldRequests
-															   managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																			success:(rrk_rkOperationAndMappingResultBlock)success
-																			failure:(rrk_rkOperationAndErrorBlock)failure;
+-(nullable RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(nonnull RKRoute*)route
+																					  object:(nullable NSManagedObject*)object
+																				  parameters:(nullable NSDictionary*)parameters
+																		   cancelOldRequests:(BOOL)cancelOldRequests
+																		managedObjectContext:(nonnull NSManagedObjectContext*)managedObjectContext
+																					 success:(nullable rrk_rkOperationAndMappingResultBlock)success
+																					 failure:(nullable rrk_rkOperationAndErrorBlock)failure;
 
 //Multipart Form
--(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
-																						 path:(NSString *)path
-																				   parameters:(NSDictionary *)parameters
-																					   object:(NSManagedObject*)object
-																					formBlock:(void (^)(id <AFMultipartFormData> formData))formBlock
-																			cancelOldRequests:(BOOL)cancelOldRequests
-																		 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																		  uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
-																					  success:(rrk_rkOperationAndMappingResultBlock)success
-																					  failure:(rrk_rkOperationAndErrorBlock)failure;
+-(nullable RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
+																								  path:(nonnull NSString*)path
+																							parameters:(nullable NSDictionary*)parameters
+																								object:(nullable NSManagedObject*)object
+																							 formBlock:(nullable rrk_afFormDataBlock)formBlock
+																					 cancelOldRequests:(BOOL)cancelOldRequests
+																				  managedObjectContext:(nullable NSManagedObjectContext*)managedObjectContext
+																				   uploadProgressBlock:(nullable rrk_uploadProgressBlock)uploadProgressBlock
+																							   success:(nullable rrk_rkOperationAndMappingResultBlock)success
+																							   failure:(nullable rrk_rkOperationAndErrorBlock)failure;
 
--(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
-																						 path:(NSString *)path
-																				   parameters:(NSDictionary *)parameters
-																					   object:(NSManagedObject*)object
-																				   uploadData:(NSData*)uploadData
-																						 name:(NSString*)name
-																					 fileName:(NSString*)fileName
-																					 mimeType:(NSString*)mimeType
-																			cancelOldRequests:(BOOL)cancelOldRequests
-																		 managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																		  uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
-																					  success:(rrk_rkOperationAndMappingResultBlock)success
-																					  failure:(rrk_rkOperationAndErrorBlock)failure;
+-(nullable RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectMultiPartRequestOperationForMethod:(RKRequestMethod)method
+																								  path:(nonnull NSString*)path
+																							parameters:(nullable NSDictionary*)parameters
+																								object:(nullable NSManagedObject*)object
+																							uploadData:(nonnull NSData*)uploadData
+																								  name:(nonnull NSString*)name
+																							  fileName:(nonnull NSString*)fileName
+																							  mimeType:(nonnull NSString*)mimeType
+																					 cancelOldRequests:(BOOL)cancelOldRequests
+																				  managedObjectContext:(nullable NSManagedObjectContext*)managedObjectContext
+																				   uploadProgressBlock:(nullable rrk_uploadProgressBlock)uploadProgressBlock
+																							   success:(nullable rrk_rkOperationAndMappingResultBlock)success
+																							   failure:(nullable rrk_rkOperationAndErrorBlock)failure;
 
--(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectPNGImageUploadRequestOperationForMethod:(RKRequestMethod)method
-																							  path:(NSString *)path
-																						parameters:(NSDictionary *)parameters
-																						  pngImage:(UIImage*)pngImage
-																							object:(NSManagedObject*)object
-																				 cancelOldRequests:(BOOL)cancelOldRequests
-																			  managedObjectContext:(NSManagedObjectContext *)managedObjectContext
-																			   uploadProgressBlock:(rrk_uploadProgressBlock)uploadProgressBlock
-																						   success:(rrk_rkOperationAndMappingResultBlock)success
-																						   failure:(rrk_rkOperationAndErrorBlock)failure;
+-(nullable RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectPNGImageUploadRequestOperationForMethod:(RKRequestMethod)method
+																									   path:(nonnull NSString*)path
+																								 parameters:(nullable NSDictionary*)parameters
+																								   pngImage:(nonnull UIImage*)pngImage
+																									 object:(nullable NSManagedObject*)object
+																						  cancelOldRequests:(BOOL)cancelOldRequests
+																					   managedObjectContext:(nullable NSManagedObjectContext*)managedObjectContext
+																						uploadProgressBlock:(nullable rrk_uploadProgressBlock)uploadProgressBlock
+																									success:(nullable rrk_rkOperationAndMappingResultBlock)success
+																									failure:(nullable rrk_rkOperationAndErrorBlock)failure;
 
--(void)rrk_addRouteIfNotAlreadyAdded:(RKRoute*)route cancelOldRequests:(BOOL)cancelOldRequests;
+#pragma mark - Image Type
++(nullable NSString*)mimeTypeForImageType:(RRKCreateRequestsFromRoutes_RKObjectManager_ImageType)imageType;
 
-+(NSString*)mimeTypeForImageType:(RRKCreateRequestsFromRoutes_RKObjectManager_ImageType)imageType;
+#pragma mark - Add Route and cancel
+-(void)rrk_addRouteIfNotAlreadyAdded:(nonnull RKRoute*)route cancelOldRequests:(BOOL)cancelOldRequests;
 
 @end

@@ -55,11 +55,11 @@
 #import "lcl_config_components_RK.h"
 #import "lcl_config_extensions_RK.h"
 #import "lcl_config_logger_RK.h"
+#import "lcl_RK.h"
 #import "RKDictionaryUtilities.h"
 #import "RKDotNetDateFormatter.h"
 #import "RKErrors.h"
 #import "RKLog.h"
-#import "RKLumberjackLogger.h"
 #import "RKMacros.h"
 #import "RKMIMETypes.h"
 #import "RKMIMETypeSerialization.h"
@@ -69,7 +69,6 @@
 #import "RKSerialization.h"
 #import "RKStringTokenizer.h"
 #import "RKURLEncodedSerialization.h"
-#import "lcl_RK.h"
 
 FOUNDATION_EXPORT double RestKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char RestKitVersionString[];

@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#import "RKHTTPUtilities.h"
+#import <RestKit/ObjectMapping/RKHTTPUtilities.h>
 
 NSUInteger RKStatusCodeRangeLength = 100;
 
@@ -344,8 +344,19 @@ static NSDate *_parseHTTPDate(const char *buf, size_t bufLen) {
     int parsed = 0, cs = 1;
     NSDate *date = NULL;
     
+#if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && (__IPHONE_OS_VERSION_MAX_ALLOWED < 70000)) || \
+(defined(MAC_OS_X_VERSION_MAX_ALLOWED) && (MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_9))
     CFGregorianDate gdate;
     memset(&gdate, 0, sizeof(CFGregorianDate));
+#else
+    NSDateComponents *gdate = [[NSDateComponents alloc] init];
+    gdate.year = 0;
+    gdate.month = 0;
+    gdate.day = 0;
+    gdate.hour = 0;
+    gdate.minute = 0;
+    gdate.second = 0;
+#endif
     
     {
         int _slen, _trans;
@@ -397,11 +408,29 @@ static NSDate *_parseHTTPDate(const char *buf, size_t bufLen) {
     _out: {}
     }
     
-    static CFTimeZoneRef gmtTimeZone;
     static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{ gmtTimeZone = CFTimeZoneCreateWithTimeIntervalFromGMT(NULL, 0.0); });
     
-    if(parsed == 1) { date = [NSDate dateWithTimeIntervalSinceReferenceDate:CFGregorianDateGetAbsoluteTime(gdate, gmtTimeZone)]; }
+#if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && (__IPHONE_OS_VERSION_MAX_ALLOWED < 70000)) || \
+(defined(MAC_OS_X_VERSION_MAX_ALLOWED) && (MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_9))
+    static CFTimeZoneRef gmtTimeZone;
+    dispatch_once(&onceToken, ^{
+        gmtTimeZone = CFTimeZoneCreateWithTimeIntervalFromGMT(NULL, 0.0);
+    });
+    
+    if (parsed == 1) {
+        date = [NSDate dateWithTimeIntervalSinceReferenceDate:CFGregorianDateGetAbsoluteTime(gdate, gmtTimeZone)];
+    }
+#else
+    static NSCalendar *gregorian;
+    dispatch_once(&onceToken, ^{
+        gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        gregorian.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    });
+    
+    if (parsed == 1) {
+        date = [gregorian dateFromComponents:gdate];
+    }
+#endif
     
     return(date);
 }
@@ -474,7 +503,16 @@ NSDate * RKHTTPCacheExpirationDateFromHeadersWithStatusCode(NSDictionary *header
             [cacheControlScanner setScanLocation:foundRange.location + foundRange.length];
             [cacheControlScanner scanString:@"=" intoString:nil];
             if ([cacheControlScanner scanInteger:&maxAge]) {
-                return maxAge > 0 ? [[NSDate alloc] initWithTimeInterval:maxAge sinceDate:now] : nil;
+            	if(maxAge > 0)
+                {
+                    const NSInteger age = ((NSString *)headers[@"Age"]).integerValue;
+                    if(age > 0)
+                    	return [[NSDate alloc] initWithTimeIntervalSinceNow:(maxAge - age)];
+                    else
+                    	return [[NSDate alloc] initWithTimeInterval:maxAge sinceDate:now];
+                }
+                else
+                	return nil;
             }
         }
     }

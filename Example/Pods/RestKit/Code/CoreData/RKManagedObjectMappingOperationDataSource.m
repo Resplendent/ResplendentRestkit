@@ -18,21 +18,21 @@
 //  limitations under the License.
 //
 
+#import <RKValueTransformers/RKValueTransformers.h>
+#import <RestKit/CoreData/NSManagedObject+RKAdditions.h>
+#import <RestKit/CoreData/RKEntityMapping.h>
+#import <RestKit/CoreData/RKManagedObjectCaching.h>
+#import <RestKit/CoreData/RKManagedObjectMappingOperationDataSource.h>
+#import <RestKit/CoreData/RKManagedObjectStore.h>
+#import <RestKit/CoreData/RKRelationshipConnectionOperation.h>
+#import <RestKit/ObjectMapping/RKMappingErrors.h>
+#import <RestKit/ObjectMapping/RKMappingOperation.h>
+#import <RestKit/ObjectMapping/RKObjectMapping.h>
+#import <RestKit/ObjectMapping/RKObjectMappingMatcher.h>
+#import <RestKit/ObjectMapping/RKObjectUtilities.h>
+#import <RestKit/ObjectMapping/RKRelationshipMapping.h>
+#import <RestKit/Support/RKLog.h>
 #import <objc/runtime.h>
-#import "RKManagedObjectMappingOperationDataSource.h"
-#import "RKObjectMapping.h"
-#import "RKEntityMapping.h"
-#import "RKLog.h"
-#import "RKManagedObjectStore.h"
-#import "RKMappingOperation.h"
-#import "RKObjectMappingMatcher.h"
-#import "RKManagedObjectCaching.h"
-#import "RKRelationshipConnectionOperation.h"
-#import "RKMappingErrors.h"
-#import "RKValueTransformers.h"
-#import "RKRelationshipMapping.h"
-#import "RKObjectUtilities.h"
-#import "NSManagedObject+RKAdditions.h"
 
 extern NSString * const RKObjectMappingNestingAttributeKeyName;
 
@@ -253,7 +253,11 @@ extern NSString * const RKObjectMappingNestingAttributeKeyName;
         if (existingObjectsOfRelationship && !RKObjectIsCollection(existingObjectsOfRelationship)) existingObjectsOfRelationship = @[ existingObjectsOfRelationship ];
         NSSet *setWithNull = [NSSet setWithObject:[NSNull null]];
         for (NSManagedObject *existingObject in existingObjectsOfRelationship) {
-            if (! identificationAttributes && ![existingObject isDeleted]) {
+            if(existingObject.isDeleted) {
+                continue;
+            }
+            
+            if (!identificationAttributes) {
                 managedObject = existingObject;
                 [existingObjectsOfRelationship removeObject:managedObject];
                 break;
@@ -273,6 +277,10 @@ extern NSString * const RKObjectMappingNestingAttributeKeyName;
                                                            attributeValues:entityIdentifierAttributes
                                                     inManagedObjectContext:self.managedObjectContext];
         if (entityMapping.identificationPredicate) objects = [objects filteredSetUsingPredicate:entityMapping.identificationPredicate];
+        if (entityMapping.identificationPredicateBlock) {
+            NSPredicate *predicate = entityMapping.identificationPredicateBlock(representation, self.managedObjectContext);
+            if (predicate) objects = [objects filteredSetUsingPredicate:predicate];
+        }
         if ([objects count] > 0) {
             managedObject = [objects anyObject];
             if ([objects count] > 1) RKLogWarning(@"Managed object cache returned %ld objects for the identifier configured for the '%@' entity, expected 1.", (long) [objects count], [entity name]);
@@ -459,8 +467,7 @@ extern NSString * const RKObjectMappingNestingAttributeKeyName;
     return [mappingOperation isNewDestinationObject];
 }
 
-- (BOOL)mappingOperationShouldSkipPropertyMapping:(RKMappingOperation *)mappingOperation
-{
+- (BOOL)isDestinationObjectNotModifiedInMappingOperation:(RKMappingOperation *)mappingOperation {
     // Use concrete mapping or original mapping if not available
     RKMapping *checkedMapping = mappingOperation.objectMapping ?: mappingOperation.mapping;
     
@@ -487,6 +494,25 @@ extern NSString * const RKObjectMappingNestingAttributeKeyName;
         return [currentValue isEqualToString:transformedValue];
     } else {
         return [currentValue compare:transformedValue] != NSOrderedAscending;
+    }
+}
+
+- (BOOL)mappingOperationShouldSkipAttributeMapping:(RKMappingOperation *)mappingOperation
+{
+    return [self isDestinationObjectNotModifiedInMappingOperation:mappingOperation];
+}
+
+- (BOOL)mappingOperationShouldSkipRelationshipMapping:(RKMappingOperation *)mappingOperation
+{
+    // Use concrete mapping or original mapping if not available
+    RKMapping *checkedMapping = mappingOperation.objectMapping ?: mappingOperation.mapping;
+    
+    if (! [checkedMapping isKindOfClass:[RKEntityMapping class]]) return NO;
+    RKEntityMapping *entityMapping = (id)checkedMapping;
+    if (entityMapping.shouldMapRelationshipsIfObjectIsUnmodified) {
+        return NO;
+    } else {
+        return [self isDestinationObjectNotModifiedInMappingOperation:mappingOperation];
     }
 }
 
