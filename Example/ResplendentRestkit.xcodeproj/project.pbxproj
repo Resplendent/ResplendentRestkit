@@ -21,9 +21,9 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		C47F85835452C1A05DF66A8B /* libPods-ResplendentRestkit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA49DEB92242EC78C10C4DA /* libPods-ResplendentRestkit_Tests.a */; };
+		D80FAC170EBB0509A246668D /* Pods_ResplendentRestkit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD84A52CEA2B616C047E50E /* Pods_ResplendentRestkit_Example.framework */; };
 		F4883E301B3C7F1D006E01BF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4883E2E1B3C7ECF006E01BF /* CoreData.framework */; };
-		FB6A49A0160856F6617957ED /* libPods-ResplendentRestkit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E36F1BE61DEA1FACD824E7E9 /* libPods-ResplendentRestkit_Example.a */; };
+		F8BC8D276FF1DE9422F316CB /* Pods_ResplendentRestkit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BFC220FE81697F5E90AF77 /* Pods_ResplendentRestkit_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +38,9 @@
 
 /* Begin PBXFileReference section */
 		1241E06495EF6BD925BEA05D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		13BFC220FE81697F5E90AF77 /* Pods_ResplendentRestkit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResplendentRestkit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		179A6AF931713E2A60102F71 /* Pods-ResplendentRestkit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResplendentRestkit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResplendentRestkit_Tests/Pods-ResplendentRestkit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1D6958CFA3DA4CDD58271BE0 /* Pods-ResplendentRestkit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResplendentRestkit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResplendentRestkit_Tests/Pods-ResplendentRestkit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		3AA49DEB92242EC78C10C4DA /* libPods-ResplendentRestkit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ResplendentRestkit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8B52A0BE6042DA15C20B22 /* Pods-ResplendentRestkit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResplendentRestkit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResplendentRestkit_Example/Pods-ResplendentRestkit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		51A4E611957FE4617BD5D90F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		5877CBD9487D4FF53869205C /* Pods-ResplendentRestkit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResplendentRestkit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResplendentRestkit_Example/Pods-ResplendentRestkit_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		E36F1BE61DEA1FACD824E7E9 /* libPods-ResplendentRestkit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ResplendentRestkit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBD84A52CEA2B616C047E50E /* Pods_ResplendentRestkit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResplendentRestkit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED496EE6432A4359A1F4E547 /* ResplendentRestkit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ResplendentRestkit.podspec; path = ../ResplendentRestkit.podspec; sourceTree = "<group>"; };
 		F4883E241B3C7CFB006E01BF /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = "Pods/../build/Debug-iphoneos/Pods-ResplendentRestkit_Example/RestKit.framework"; sourceTree = "<group>"; };
 		F4883E261B3C7EA4006E01BF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -83,7 +83,7 @@
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				FB6A49A0160856F6617957ED /* libPods-ResplendentRestkit_Example.a in Frameworks */,
+				D80FAC170EBB0509A246668D /* Pods_ResplendentRestkit_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +94,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				C47F85835452C1A05DF66A8B /* libPods-ResplendentRestkit_Tests.a in Frameworks */,
+				F8BC8D276FF1DE9422F316CB /* Pods_ResplendentRestkit_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,8 +146,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				E36F1BE61DEA1FACD824E7E9 /* libPods-ResplendentRestkit_Example.a */,
-				3AA49DEB92242EC78C10C4DA /* libPods-ResplendentRestkit_Tests.a */,
+				BBD84A52CEA2B616C047E50E /* Pods_ResplendentRestkit_Example.framework */,
+				13BFC220FE81697F5E90AF77 /* Pods_ResplendentRestkit_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,6 +219,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				66E64DD159A8A84CDAD264B0 /* Copy Pods Resources */,
+				542759C7CB4F447F4786CE40 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,6 +239,7 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				178240E6296CDD8FEC8E126E /* Copy Pods Resources */,
+				621D0F375163E85F91B8C794 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +320,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResplendentRestkit_Tests/Pods-ResplendentRestkit_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		542759C7CB4F447F4786CE40 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResplendentRestkit_Example/Pods-ResplendentRestkit_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		621D0F375163E85F91B8C794 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResplendentRestkit_Tests/Pods-ResplendentRestkit_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		66E64DD159A8A84CDAD264B0 /* Copy Pods Resources */ = {

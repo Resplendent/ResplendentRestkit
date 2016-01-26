@@ -1,0 +1,6 @@
+framework module ResplendentRestkit {
+  umbrella header "ResplendentRestkit-umbrella.h"
+
+  export *
+  module * { export * }
+}
