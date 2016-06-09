@@ -33,9 +33,9 @@ Pod::Spec.new do |s|
   s.prefix_header_contents = '#import <SystemConfiguration/SystemConfiguration.h>', '#import <MobileCoreServices/MobileCoreServices.h>'
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'ResplendentRestkit' => ['Pod/Assets/*.png']
-  }
+#  s.resource_bundles = {
+#    'ResplendentRestkit' => ['Pod/Assets/*.png']
+#  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
