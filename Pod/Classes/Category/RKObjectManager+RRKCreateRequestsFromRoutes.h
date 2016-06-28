@@ -6,13 +6,11 @@
 //  Copyright (c) 2014 Resplendent. All rights reserved.
 //
 
-@import CoreData;
-
-#import "RKObjectManager.h"
 #import "RRKBlocks.h"
-#import "RestKit.h"
-#import "RKRoute.h"
-#import "RKHTTPUtilities.h"
+
+#import <RestKit/Network/RKObjectManager.h>
+
+@import CoreData;
 
 
 
@@ -59,7 +57,7 @@ typedef NS_ENUM(NSInteger, RRKCreateRequestsFromRoutes_RKObjectManager_ImageType
 																					  object:(nullable NSManagedObject*)object
 																				  parameters:(nullable NSDictionary*)parameters
 																		   cancelOldRequests:(BOOL)cancelOldRequests
-																		managedObjectContext:(nonnull NSManagedObjectContext*)managedObjectContext
+																		managedObjectContext:(nullable NSManagedObjectContext*)managedObjectContext
 																					 success:(nullable rrk_rkOperationAndMappingResultBlock)success
 																					 failure:(nullable rrk_rkOperationAndErrorBlock)failure;
 

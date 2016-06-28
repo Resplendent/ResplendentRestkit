@@ -8,12 +8,11 @@
 
 #import "RKObjectManager+RRKCreateRequestsFromRoutes.h"
 #import "RKRouteSet+RRKAddRouteIfNotAlreadyAdded.h"
-#import "RUConditionalReturn.h"
 #import "RKObjectManager+RRKRequests.h"
 
-#import "RKObjectRequestOperation.h"
-#import "RKRouter.h"
-#import "RKHTTPRequestOperation.h"
+#import <ResplendentUtilities/RUConditionalReturn.h>
+
+#import <RestKit/Network/RKObjectManager.h>
 
 
 
@@ -204,13 +203,13 @@
 	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters cancelOldRequests:cancelOldRequests managedObjectContext:nil success:success failure:failure];
 }
 
--(RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(RKRoute*)route
-																			 object:(NSManagedObject*)object
-																		 parameters:(NSDictionary*)parameters
-																  cancelOldRequests:(BOOL)cancelOldRequests
-															   managedObjectContext:(NSManagedObjectContext*)managedObjectContext
-																			success:(rrk_rkOperationAndMappingResultBlock)success
-																			failure:(rrk_rkOperationAndErrorBlock)failure
+-(nullable RKObjectRequestOperation*)rrk_enqueueRestkitManagedObjectRequestOperationForRoute:(nonnull RKRoute*)route
+																					  object:(nullable NSManagedObject*)object
+																				  parameters:(nullable NSDictionary*)parameters
+																		   cancelOldRequests:(BOOL)cancelOldRequests
+																		managedObjectContext:(nullable NSManagedObjectContext*)managedObjectContext
+																					 success:(nullable rrk_rkOperationAndMappingResultBlock)success
+																					 failure:(nullable rrk_rkOperationAndErrorBlock)failure
 {
 	kRUConditionalReturn_ReturnValueNil(managedObjectContext == nil, YES);
 	

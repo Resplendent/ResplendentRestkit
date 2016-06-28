@@ -1,22 +1,17 @@
 source 'https://github.com/CocoaPods/Specs.git'
-use_frameworks!
+#use_frameworks!
 
 
-target 'ResplendentRestkit_Example', :exclusive => true do
-  pod "ResplendentRestkit", :path => "../"
+def sharedPods
+	pod "ResplendentRestkit", :path => "../"
 
-  post_install do |installer|
-	  installer.pods_project.build_configuration_list.build_configurations.each do |configuration|
-		  configuration.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
-	  end
-  end
+#	post_install do |installer|
+#		installer.pods_project.build_configuration_list.build_configurations.each do |configuration|
+#			configuration.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+#		end
+#	end
 end
 
-target 'ResplendentRestkit_Tests', :exclusive => true do
-  pod "ResplendentRestkit", :path => "../"
-
-  pod 'Specta'
-  pod 'Expecta'
-  pod 'FBSnapshotTestCase'
-  pod 'Expecta+Snapshots'
+target 'ResplendentRestkit_Example' do
+	sharedPods
 end

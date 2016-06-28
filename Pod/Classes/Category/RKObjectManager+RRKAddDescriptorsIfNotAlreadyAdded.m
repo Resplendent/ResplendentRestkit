@@ -8,10 +8,10 @@
 
 #import "RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.h"
 
-#import "RUClassOrNilUtil.h"
+#import <ResplendentUtilities/RUClassOrNilUtil.h>
 
-#import "RKResponseDescriptor.h"
-#import "RKRequestDescriptor.h"
+#import <RestKit/Network/RKResponseDescriptor.h>
+#import <RestKit/Network/RKRequestDescriptor.h>
 
 
 

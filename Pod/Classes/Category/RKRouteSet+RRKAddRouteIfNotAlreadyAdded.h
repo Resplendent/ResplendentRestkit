@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 Resplendent. All rights reserved.
 //
 
-#import "RKRouteSet.h"
-#import "RKRoute.h"
+#import <RestKit/Network/RKRouteSet.h>
 
 
 

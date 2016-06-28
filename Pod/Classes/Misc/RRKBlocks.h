@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RKObjectManager.h"
-#import "RKHTTPRequestOperation.h"
+
+
+
+
+@class RKObjectRequestOperation;
+@class RKMappingResult;
+@class AFHTTPRequestOperation;
+@protocol AFMultipartFormData;
 
 
 

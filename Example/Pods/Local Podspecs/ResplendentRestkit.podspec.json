@@ -18,15 +18,12 @@
   "requires_arc": true,
   "prefix_header_contents": [
     "#import <SystemConfiguration/SystemConfiguration.h>",
-    "#import <MobileCoreServices/MobileCoreServices.h>"
+    "#import <MobileCoreServices/MobileCoreServices.h>",
+    "#import <RestKit/CoreData/RKCoreData.h>",
+    "#import <RestKit.h>"
   ],
   "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "ResplendentRestkit": [
-      "Pod/Assets/*.png"
-    ]
-  },
-  "frameworks": "CoreData",
+  "frameworks": "MobileCoreServices",
   "dependencies": {
     "ResplendentUtilities": [
       "~> 0.4.0"

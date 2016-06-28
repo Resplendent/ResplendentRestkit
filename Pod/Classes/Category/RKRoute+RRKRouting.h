@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 Resplendent All rights reserved.
 //
 
-#import "RKRoute.h"
-#import "RKHTTPUtilities.h"
+#import <RestKit/Network/RKRoute.h>
 
 
 
@@ -15,6 +14,6 @@
 
 @interface RKRoute (RRKRouting)
 
-+(instancetype)rrk_RouteWithName:(NSString*)name pathPattern:(NSString*)pathPattern requestMethod:(RKRequestMethod)requestMethod objectClass:(Class)objectClass;
++(nullable instancetype)rrk_RouteWithName:(nonnull NSString*)name pathPattern:(nonnull NSString*)pathPattern requestMethod:(RKRequestMethod)requestMethod objectClass:(nullable Class)objectClass;
 
 @end
