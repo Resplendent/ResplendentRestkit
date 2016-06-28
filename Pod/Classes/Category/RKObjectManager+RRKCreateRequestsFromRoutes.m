@@ -211,8 +211,6 @@
 																					 success:(nullable rrk_rkOperationAndMappingResultBlock)success
 																					 failure:(nullable rrk_rkOperationAndErrorBlock)failure
 {
-	kRUConditionalReturn_ReturnValueNil(managedObjectContext == nil, YES);
-	
 	return [self rrk_enqueueRestkitAppropriateObjectRequestOperationForRoute:route object:object parameters:parameters cancelOldRequests:cancelOldRequests  managedObjectContext:managedObjectContext success:success failure:failure];
 }
 
