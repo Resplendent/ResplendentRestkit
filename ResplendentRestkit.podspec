@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ResplendentRestkit'
-  s.version          = '0.1.1'
+  s.version          = '0.2.0'
   s.summary          = 'A set of of tools to facilitate common Restkit usage.'
 
   s.homepage         = 'https://github.com/Resplendent/ResplendentRestkit'
