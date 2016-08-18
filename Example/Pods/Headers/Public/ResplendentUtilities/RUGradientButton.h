@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/Buttons/RUGradientButton.h
+../../../ResplendentUtilities/Pod/Classes/View/Buttons/RUGradientButton.h

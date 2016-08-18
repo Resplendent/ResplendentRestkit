@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIScrollView+RUAboveContentView.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIScrollView+RUAboveContentView.h

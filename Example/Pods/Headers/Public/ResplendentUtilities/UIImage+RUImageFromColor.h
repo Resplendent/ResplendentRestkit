@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIImage/UIImage+RUImageFromColor.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIImage/UIImage+RUImageFromColor.h

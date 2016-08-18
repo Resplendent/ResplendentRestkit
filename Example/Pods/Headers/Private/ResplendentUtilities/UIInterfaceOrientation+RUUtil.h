@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIInterfaceOrientation+RUUtil.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIInterfaceOrientation+RUUtil.h

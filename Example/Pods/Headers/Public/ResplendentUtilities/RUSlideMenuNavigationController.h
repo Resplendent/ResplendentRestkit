@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/UIViewController/UINavigationController/RUSlideMenuNavigationController.h
+../../../ResplendentUtilities/Pod/Classes/View/UIViewController/UINavigationController/RUSlideMenuNavigationController.h

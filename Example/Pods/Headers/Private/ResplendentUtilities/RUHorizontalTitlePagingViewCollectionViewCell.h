@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/HorizontalTitlePagingView/RUHorizontalTitlePagingViewCollectionViewCell.h
+../../../ResplendentUtilities/Pod/Classes/View/HorizontalTitlePagingView/RUHorizontalTitlePagingViewCollectionViewCell.h

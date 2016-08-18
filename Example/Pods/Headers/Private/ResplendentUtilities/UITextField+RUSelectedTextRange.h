@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UITextField/UITextField+RUSelectedTextRange.h
+../../../ResplendentUtilities/Pod/Classes/Category/UITextField/UITextField+RUSelectedTextRange.h

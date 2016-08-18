@@ -2,8 +2,8 @@
 //  ResplendentRestkitTests.m
 //  ResplendentRestkitTests
 //
-//  Created by Richard Reitzfeld on 06/25/2015.
-//  Copyright (c) 2015 Richard Reitzfeld. All rights reserved.
+//  Created by Benjamin Maer on 01/26/2016.
+//  Copyright (c) 2016 Benjamin Maer. All rights reserved.
 //
 
 // https://github.com/Specta/Specta
@@ -45,3 +45,4 @@ describe(@"these will pass", ^{
 });
 
 SpecEnd
+

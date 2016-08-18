@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Resplendent. All rights reserved.
 //
 
-#import "RKObjectManager.h"
+#import <RestKit/Network/RKObjectManager.h>
 
 
 

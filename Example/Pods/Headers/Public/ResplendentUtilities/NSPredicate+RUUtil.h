@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSPredicate+RUUtil.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSPredicate+RUUtil.h

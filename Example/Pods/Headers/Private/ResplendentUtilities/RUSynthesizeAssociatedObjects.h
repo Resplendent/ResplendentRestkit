@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUSynthesizeAssociatedObjects.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUSynthesizeAssociatedObjects.h

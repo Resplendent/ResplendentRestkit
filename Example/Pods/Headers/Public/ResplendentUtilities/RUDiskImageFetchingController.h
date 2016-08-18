@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Controller/RUDiskImageFetchingController/RUDiskImageFetchingController.h
+../../../ResplendentUtilities/Pod/Classes/Controller/RUDiskImageFetchingController/RUDiskImageFetchingController.h

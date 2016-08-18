@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/Image/RUAsynchronousUIImageRequestProtocols.h
+../../../ResplendentUtilities/Pod/Classes/View/Image/RUAsynchronousUIImageRequestProtocols.h

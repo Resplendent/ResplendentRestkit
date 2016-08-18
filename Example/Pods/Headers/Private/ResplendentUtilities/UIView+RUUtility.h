@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIView/UIView+RUUtility.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIView/UIView+RUUtility.h

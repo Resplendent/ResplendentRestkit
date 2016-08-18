@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUShowViewUtil.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUShowViewUtil.h

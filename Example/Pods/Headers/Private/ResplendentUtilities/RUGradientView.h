@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/Gradients/RUGradientView.h
+../../../ResplendentUtilities/Pod/Classes/View/Gradients/RUGradientView.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSNumber+RUUtil.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSNumber+RUUtil.h

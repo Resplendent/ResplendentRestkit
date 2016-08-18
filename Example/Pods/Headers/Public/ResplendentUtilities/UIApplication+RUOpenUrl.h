@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIApplication/UIApplication+RUOpenUrl.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIApplication/UIApplication+RUOpenUrl.h

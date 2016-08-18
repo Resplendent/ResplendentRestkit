@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIView/UIView+RUSpinner.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIView/UIView+RUSpinner.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Objects/RUAddressBookUtil.h
+../../../ResplendentUtilities/Pod/Classes/Objects/RUAddressBookUtil.h

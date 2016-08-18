@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSArray/NSArray+RUComponents.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSArray/NSArray+RUComponents.h

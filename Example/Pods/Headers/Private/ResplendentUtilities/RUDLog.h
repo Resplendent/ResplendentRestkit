@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUDLog.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUDLog.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Objects/KeyboardAdjustmentHelper/RUKeyboardAdjustmentHelper.h
+../../../ResplendentUtilities/Pod/Classes/Objects/KeyboardAdjustmentHelper/RUKeyboardAdjustmentHelper.h

@@ -8,10 +8,10 @@
 
 #import "NSDictionary+RRKPropertyMappings.h"
 
-#import "RUConditionalReturn.h"
-#import "RUClassOrNilUtil.h"
+#import <ResplendentUtilities/RUConditionalReturn.h>
+#import <ResplendentUtilities/RUClassOrNilUtil.h>
 
-#import "RestKit.h"
+#import <RestKit/ObjectMapping/RKPropertyMapping.h>
 
 
 

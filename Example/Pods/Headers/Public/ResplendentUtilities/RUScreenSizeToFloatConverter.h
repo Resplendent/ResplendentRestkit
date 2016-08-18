@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/Compatability/RUScreenSizeToFloatConverter.h
+../../../ResplendentUtilities/Pod/Classes/Misc/Compatability/RUScreenSizeToFloatConverter.h

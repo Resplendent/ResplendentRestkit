@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/Notifications/NSObject+RUKeyboardNotifications.h
+../../../ResplendentUtilities/Pod/Classes/Category/Notifications/NSObject+RUKeyboardNotifications.h

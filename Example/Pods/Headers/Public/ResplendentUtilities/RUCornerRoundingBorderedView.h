@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/CornerRoundingBorderedView/RUCornerRoundingBorderedView.h
+../../../ResplendentUtilities/Pod/Classes/View/CornerRoundingBorderedView/RUCornerRoundingBorderedView.h

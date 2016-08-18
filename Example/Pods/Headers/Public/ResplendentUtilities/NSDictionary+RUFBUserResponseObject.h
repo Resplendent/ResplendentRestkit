@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSDictionary/NSDictionary+RUFBUserResponseObject.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSDictionary/NSDictionary+RUFBUserResponseObject.h

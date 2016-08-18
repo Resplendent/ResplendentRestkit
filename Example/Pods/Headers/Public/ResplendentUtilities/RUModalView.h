@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/Modal/RUModalView.h
+../../../ResplendentUtilities/Pod/Classes/View/Modal/RUModalView.h

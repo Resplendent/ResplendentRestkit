@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIImageView+RUDiskImageFetching.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIImageView+RUDiskImageFetching.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/ScrollView/RUScrollView.h
+../../../ResplendentUtilities/Pod/Classes/View/ScrollView/RUScrollView.h

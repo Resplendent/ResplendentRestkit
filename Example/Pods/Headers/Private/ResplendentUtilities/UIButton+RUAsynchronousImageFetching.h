@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/ImageFetching/UIButton+RUAsynchronousImageFetching.h
+../../../ResplendentUtilities/Pod/Classes/View/ImageFetching/UIButton+RUAsynchronousImageFetching.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSURL/NSURL+RUQueryParams.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSURL/NSURL+RUQueryParams.h

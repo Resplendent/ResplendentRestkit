@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Fullscreen/RUFullscreenRotatingView.h
+../../../ResplendentUtilities/Pod/Classes/Fullscreen/RUFullscreenRotatingView.h

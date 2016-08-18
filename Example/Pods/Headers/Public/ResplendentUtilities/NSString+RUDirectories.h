@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSString/NSString+RUDirectories.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSString/NSString+RUDirectories.h

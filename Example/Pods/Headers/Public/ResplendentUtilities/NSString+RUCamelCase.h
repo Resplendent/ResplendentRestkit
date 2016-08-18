@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSString/NSString+RUCamelCase.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSString/NSString+RUCamelCase.h

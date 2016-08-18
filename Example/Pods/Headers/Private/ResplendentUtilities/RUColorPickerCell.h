@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/ColorPicker/RUColorPickerCell.h
+../../../ResplendentUtilities/Pod/Classes/View/ColorPicker/RUColorPickerCell.h

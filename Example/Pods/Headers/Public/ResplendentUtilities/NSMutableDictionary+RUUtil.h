@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSMutableDictionary+RUUtil.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSMutableDictionary+RUUtil.h

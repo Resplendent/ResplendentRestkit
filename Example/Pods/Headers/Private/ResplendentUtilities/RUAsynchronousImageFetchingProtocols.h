@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/ImageFetching/RUAsynchronousImageFetchingProtocols.h
+../../../ResplendentUtilities/Pod/Classes/View/ImageFetching/RUAsynchronousImageFetchingProtocols.h

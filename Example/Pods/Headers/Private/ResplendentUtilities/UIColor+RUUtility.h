@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIColor/UIColor+RUUtility.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIColor/UIColor+RUUtility.h

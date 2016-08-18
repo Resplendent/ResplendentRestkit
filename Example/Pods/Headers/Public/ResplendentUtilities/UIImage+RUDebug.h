@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIImage/UIImage+RUDebug.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIImage/UIImage+RUDebug.h

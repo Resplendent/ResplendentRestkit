@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/Compatability/RUStringCompatability.h
+../../../ResplendentUtilities/Pod/Classes/Misc/Compatability/RUStringCompatability.h

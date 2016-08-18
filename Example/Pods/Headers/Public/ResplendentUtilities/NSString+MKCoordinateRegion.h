@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSString/NSString+MKCoordinateRegion.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSString/NSString+MKCoordinateRegion.h

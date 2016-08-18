@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/RUViewStack/RUViewStack.h
+../../../ResplendentUtilities/Pod/Classes/View/RUViewStack/RUViewStack.h

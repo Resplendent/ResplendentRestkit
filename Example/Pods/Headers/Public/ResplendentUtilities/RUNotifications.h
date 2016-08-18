@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUNotifications.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUNotifications.h

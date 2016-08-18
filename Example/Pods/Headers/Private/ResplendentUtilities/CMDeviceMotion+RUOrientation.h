@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/CMDeviceMotion+RUOrientation.h
+../../../ResplendentUtilities/Pod/Classes/Category/CMDeviceMotion+RUOrientation.h

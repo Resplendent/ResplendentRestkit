@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUSynthesizeUserDefaultMethods.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUSynthesizeUserDefaultMethods.h

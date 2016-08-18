@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/TableView/RUTableView.h
+../../../ResplendentUtilities/Pod/Classes/View/TableView/RUTableView.h

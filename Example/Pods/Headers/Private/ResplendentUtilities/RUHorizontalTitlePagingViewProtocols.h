@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/HorizontalTitlePagingView/RUHorizontalTitlePagingViewProtocols.h
+../../../ResplendentUtilities/Pod/Classes/View/HorizontalTitlePagingView/RUHorizontalTitlePagingViewProtocols.h

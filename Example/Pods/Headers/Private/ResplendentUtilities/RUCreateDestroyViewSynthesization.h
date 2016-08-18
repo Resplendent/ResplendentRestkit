@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUCreateDestroyViewSynthesization.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUCreateDestroyViewSynthesization.h

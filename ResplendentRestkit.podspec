@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ResplendentRestkit"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "A set of of tools to facilitate common Restkit usage."
 # s.description      = <<-DESC
 #                        An optional longer description of ResplendentRestkit
@@ -20,22 +20,36 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/Resplendent/ResplendentRestkit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Richard Reitzfeld" => "richie.reitzfeld@gmail.com" }
+  s.author           = {
+							"Benjamin Maer" => "ben@resplendent.co",
+							"Richard Reitzfeld" => "richie.reitzfeld@gmail.com"
+}
   s.source           = { :git => "https://github.com/Resplendent/ResplendentRestkit.git", :tag => "v#{s.version}"}
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.prefix_header_contents = '#import <CoreData.h>', '#import <SystemConfiguration/SystemConfiguration.h>', '#import <MobileCoreServices/MobileCoreServices.h>'
+  s.prefix_header_contents = '#import <SystemConfiguration/SystemConfiguration.h>', '#import <MobileCoreServices/MobileCoreServices.h>', '#import <RestKit/CoreData/RKCoreData.h>', '#import <RestKit.h>'
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'ResplendentRestkit' => ['Pod/Assets/*.png']
-  }
+#  s.resource_bundles = {
+#    'ResplendentRestkit' => ['Pod/Assets/*.png']
+#  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'ResplendentUtilities', '~> 0.2'
-  s.dependency 'RestKit', '0.24.1'
+  s.framework    = 'CoreData'
+  s.framework    = 'SystemConfiguration'
+  s.framework    = 'MobileCoreServices'
+  s.dependency 'ResplendentUtilities', '~> 0.4.0'
+  s.dependency 'RestKit', '~> 0.26.0'
+  s.dependency 'AFNetworking', '~> 1.3.4'
+
 end
+
+# Pod::post_install do |installer|
+# 	installer.pods_project.build_configuration_list.build_configurations.each do |configuration|
+# 		configuration.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+# 	end
+# end

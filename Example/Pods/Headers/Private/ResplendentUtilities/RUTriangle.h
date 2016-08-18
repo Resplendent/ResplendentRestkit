@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/Geometry/RUTriangle.h
+../../../ResplendentUtilities/Pod/Classes/View/Geometry/RUTriangle.h

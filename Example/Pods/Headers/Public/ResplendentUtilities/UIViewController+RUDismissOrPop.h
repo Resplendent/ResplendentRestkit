@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIViewController/UIViewController+RUDismissOrPop.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIViewController/UIViewController+RUDismissOrPop.h

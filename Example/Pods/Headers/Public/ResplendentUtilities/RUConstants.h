@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUConstants.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUConstants.h

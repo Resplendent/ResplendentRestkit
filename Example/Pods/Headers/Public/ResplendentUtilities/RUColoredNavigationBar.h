@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/UINavigationBar/RUColoredNavigationBar.h
+../../../ResplendentUtilities/Pod/Classes/View/UINavigationBar/RUColoredNavigationBar.h

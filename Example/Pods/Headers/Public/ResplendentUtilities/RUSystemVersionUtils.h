@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUSystemVersionUtils.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUSystemVersionUtils.h

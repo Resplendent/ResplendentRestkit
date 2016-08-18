@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/RUViewStack/RUViewStackProtocols.h
+../../../ResplendentUtilities/Pod/Classes/View/RUViewStack/RUViewStackProtocols.h

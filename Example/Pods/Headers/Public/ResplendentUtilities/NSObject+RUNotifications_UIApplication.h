@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIApplication/NSObject+RUNotifications_UIApplication.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIApplication/NSObject+RUNotifications_UIApplication.h

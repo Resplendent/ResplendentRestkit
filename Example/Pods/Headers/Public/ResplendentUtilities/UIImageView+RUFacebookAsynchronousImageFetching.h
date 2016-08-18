@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/ImageFetching/UIImageView+RUFacebookAsynchronousImageFetching.h
+../../../ResplendentUtilities/Pod/Classes/View/ImageFetching/UIImageView+RUFacebookAsynchronousImageFetching.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/Touches/RUSubviewTouchesView.h
+../../../ResplendentUtilities/Pod/Classes/View/Touches/RUSubviewTouchesView.h

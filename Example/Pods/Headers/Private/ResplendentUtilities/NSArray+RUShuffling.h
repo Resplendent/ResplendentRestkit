@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSArray/NSArray+RUShuffling.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSArray/NSArray+RUShuffling.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSBundle+RUPListGetters.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSBundle+RUPListGetters.h

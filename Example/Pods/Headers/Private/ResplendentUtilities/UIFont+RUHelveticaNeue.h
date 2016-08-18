@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIFont+RUHelveticaNeue.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIFont+RUHelveticaNeue.h

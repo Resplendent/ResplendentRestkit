@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/Keyboard/RUScrollWithKeyboardAdjustmentView.h
+../../../ResplendentUtilities/Pod/Classes/View/Keyboard/RUScrollWithKeyboardAdjustmentView.h

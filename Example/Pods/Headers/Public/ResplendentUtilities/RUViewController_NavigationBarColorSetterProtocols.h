@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIViewController/RUViewController_NavigationBarColorSetterProtocols.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIViewController/RUViewController_NavigationBarColorSetterProtocols.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UINavigationController/UINavigationController+RUNavbarColorSetter.h
+../../../ResplendentUtilities/Pod/Classes/Category/UINavigationController/UINavigationController+RUNavbarColorSetter.h

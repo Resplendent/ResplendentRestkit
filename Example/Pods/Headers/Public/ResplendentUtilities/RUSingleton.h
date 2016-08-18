@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUSingleton.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUSingleton.h

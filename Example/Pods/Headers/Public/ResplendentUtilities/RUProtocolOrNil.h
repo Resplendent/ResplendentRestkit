@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUProtocolOrNil.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUProtocolOrNil.h

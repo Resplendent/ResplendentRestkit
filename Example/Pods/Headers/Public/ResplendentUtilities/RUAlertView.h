@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/View/UIAlertView/RUAlertView.h
+../../../ResplendentUtilities/Pod/Classes/View/UIAlertView/RUAlertView.h

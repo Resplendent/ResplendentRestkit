@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UIImage/UIView+RUSnapshot.h
+../../../ResplendentUtilities/Pod/Classes/Category/UIImage/UIView+RUSnapshot.h

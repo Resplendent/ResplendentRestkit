@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UITabBarController/UITabBarController+RUTabBarVisibility.h
+../../../ResplendentUtilities/Pod/Classes/Category/UITabBarController/UITabBarController+RUTabBarVisibility.h

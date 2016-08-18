@@ -23,7 +23,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "lcl_RK.h"
+#import <RestKit/Support/lcl_RK.h>
 #include <string.h>
 
 
@@ -34,7 +34,7 @@ _RKlcl_level_narrow_t _RKlcl_component_level[_RKlcl_component_t_count];
 const char * const _RKlcl_component_identifier[] = {
 #   define  _RKlcl_component(_identifier, _header, _name)                        \
     #_identifier,
-#   include "lcl_config_components_RK.h"
+    RKLCLComponentDefinitions
 #   undef   _RKlcl_component
 };
 
@@ -42,7 +42,7 @@ const char * const _RKlcl_component_identifier[] = {
 const char * const _RKlcl_component_header[] = {
 #   define  _RKlcl_component(_identifier, _header, _name)                        \
     _header,
-#   include "lcl_config_components_RK.h"
+    RKLCLComponentDefinitions
 #   undef   _RKlcl_component
 };
 
@@ -50,7 +50,7 @@ const char * const _RKlcl_component_header[] = {
 const char * const _RKlcl_component_name[] = {
 #   define  _RKlcl_component(_identifier, _header, _name)                        \
     _name,
-#   include "lcl_config_components_RK.h"
+    RKLCLComponentDefinitions
 #   undef   _RKlcl_component
 };
 
@@ -97,7 +97,7 @@ const char * const _RKlcl_level_name[] = {
 // Version.
 #define __RKlcl_version_to_string( _text) __RKlcl_version_to_string0(_text)
 #define __RKlcl_version_to_string0(_text) #_text
-const char * const _RKlcl_version = __RKlcl_version_to_string(_RKLCL_VERSION_MAJOR) 
+const char * const _RKlcl_version = __RKlcl_version_to_string(_RKLCL_VERSION_MAJOR)
                               "." __RKlcl_version_to_string(_RKLCL_VERSION_MINOR)
                               "." __RKlcl_version_to_string(_RKLCL_VERSION_BUILD)
                               ""  _RKLCL_VERSION_SUFFIX;
@@ -108,13 +108,13 @@ uint32_t RKlcl_configure_by_component(_RKlcl_component_t component, _RKlcl_level
     if (level > _RKlcl_level_t_last) {
         level = _RKlcl_level_t_last;
     }
-    
+
     // configure the component
     if (component <= _RKlcl_component_t_last) {
         _RKlcl_component_level[component] = level;
         return 1;
     }
-    
+
     return 0;
 }
 
@@ -126,12 +126,12 @@ static uint32_t _RKlcl_configure_by_text(uint32_t count, const char * const *tex
     if (text == NULL || text[0] == '\0') {
         return 0;
     }
-    
+
     // unsupported level, clip to last level
     if (level > _RKlcl_level_t_last) {
         level = _RKlcl_level_t_last;
     }
-    
+
     // configure the components
     uint32_t num_configured = 0;
     size_t text_len = strlen(text);
@@ -173,4 +173,3 @@ uint32_t RKlcl_configure_by_name(const char *name, _RKlcl_level_t level) {
     return _RKlcl_configure_by_text(_RKlcl_component_t_count, _RKlcl_component_name,
                                   _RKlcl_component_level, name, level);
 }
-

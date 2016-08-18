@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UILabel/UILabel+RUAttributes.h
+../../../ResplendentUtilities/Pod/Classes/Category/UILabel/UILabel+RUAttributes.h

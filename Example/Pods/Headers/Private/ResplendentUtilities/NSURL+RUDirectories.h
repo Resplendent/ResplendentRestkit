@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSURL/NSURL+RUDirectories.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSURL/NSURL+RUDirectories.h

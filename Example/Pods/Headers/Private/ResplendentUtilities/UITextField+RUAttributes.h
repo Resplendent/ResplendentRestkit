@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UITextField/UITextField+RUAttributes.h
+../../../ResplendentUtilities/Pod/Classes/Category/UITextField/UITextField+RUAttributes.h

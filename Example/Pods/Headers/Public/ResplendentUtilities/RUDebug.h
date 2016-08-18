@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUDebug.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUDebug.h

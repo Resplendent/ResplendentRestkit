@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUStaticVariableSynthesization.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUStaticVariableSynthesization.h

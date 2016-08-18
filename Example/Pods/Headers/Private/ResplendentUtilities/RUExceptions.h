@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Misc/RUExceptions.h
+../../../ResplendentUtilities/Pod/Classes/Misc/RUExceptions.h

@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/UINavigationController/UINavigationController+RUColoredStatusBarView.h
+../../../ResplendentUtilities/Pod/Classes/Category/UINavigationController/UINavigationController+RUColoredStatusBarView.h

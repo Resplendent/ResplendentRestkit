@@ -1,1 +1,1 @@
-../../../ResplendentUtilities/Pod/Classes/ResplendentUtilities/Code/ResplendentUtilities/Category/NSString/NSString+RUStringContainsUtil.h
+../../../ResplendentUtilities/Pod/Classes/Category/NSString/NSString+RUStringContainsUtil.h
