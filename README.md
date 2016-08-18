@@ -1,6 +1,6 @@
 # ResplendentRestkit
 
-[![CI Status](http://img.shields.io/travis/Richard Reitzfeld/ResplendentRestkit.svg?style=flat)](https://travis-ci.org/Richard Reitzfeld/ResplendentRestkit)
+[![CI Status](http://img.shields.io/travis/Benjamin Maer/ResplendentRestkit.svg?style=flat)](https://travis-ci.org/Benjamin Maer/ResplendentRestkit)
 [![Version](https://img.shields.io/cocoapods/v/ResplendentRestkit.svg?style=flat)](http://cocoapods.org/pods/ResplendentRestkit)
 [![License](https://img.shields.io/cocoapods/l/ResplendentRestkit.svg?style=flat)](http://cocoapods.org/pods/ResplendentRestkit)
 [![Platform](https://img.shields.io/cocoapods/p/ResplendentRestkit.svg?style=flat)](http://cocoapods.org/pods/ResplendentRestkit)
@@ -22,7 +22,7 @@ pod "ResplendentRestkit"
 
 ## Author
 
-Richard Reitzfeld, richie.reitzfeld@gmail.com
+Benjamin Maer, ben@resplendent.co
 
 ## License
 

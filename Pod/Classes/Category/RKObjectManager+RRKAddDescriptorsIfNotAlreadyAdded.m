@@ -7,12 +7,14 @@
 //
 
 #import "RKObjectManager+RRKAddDescriptorsIfNotAlreadyAdded.h"
-#import "RestKit.h"
 
-#import "RUClassOrNilUtil.h"
+#import <ResplendentUtilities/RUClassOrNilUtil.h>
+
+#import <RestKit/Network/RKResponseDescriptor.h>
+#import <RestKit/Network/RKRequestDescriptor.h>
 
 
-@class RKResponseDescriptor;
+
 
 
 @interface RKResponseDescriptor (RRK_DescriptorHelper)
@@ -20,6 +22,10 @@
 -(RKResponseDescriptor*)rrk_responseDescriptorForComparing;
 
 @end
+
+
+
+
 
 @implementation RKResponseDescriptor (RRK_DescriptorHelper)
 

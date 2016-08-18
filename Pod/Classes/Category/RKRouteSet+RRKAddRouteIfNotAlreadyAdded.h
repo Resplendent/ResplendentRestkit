@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Resplendent. All rights reserved.
 //
 
-#import "RKRouteSet.h"
+#import <RestKit/Network/RKRouteSet.h>
 
 
 
@@ -14,7 +14,7 @@
 
 @interface RKRouteSet (RRKAddRouteIfNotAlreadyAdded)
 
--(BOOL)rrk_containsRoute:(RKRoute *)route;
--(void)rrk_addRouteIfNotAlreadyAdded:(RKRoute *)route;
+-(BOOL)rrk_containsRoute:(nonnull RKRoute*)route;
+-(void)rrk_addRouteIfNotAlreadyAdded:(nonnull RKRoute*)route;
 
 @end

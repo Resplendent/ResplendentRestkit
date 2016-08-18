@@ -19,14 +19,14 @@
 //
 
 #import <CoreData/CoreData.h>
-#import "RKRelationshipConnectionOperation.h"
-#import "RKConnectionDescription.h"
-#import "RKEntityMapping.h"
-#import "RKLog.h"
-#import "RKManagedObjectCaching.h"
-#import "RKObjectMappingMatcher.h"
-#import "RKErrors.h"
-#import "RKObjectUtilities.h"
+#import <RestKit/CoreData/RKConnectionDescription.h>
+#import <RestKit/CoreData/RKEntityMapping.h>
+#import <RestKit/CoreData/RKManagedObjectCaching.h>
+#import <RestKit/CoreData/RKRelationshipConnectionOperation.h>
+#import <RestKit/ObjectMapping/RKObjectMappingMatcher.h>
+#import <RestKit/ObjectMapping/RKObjectUtilities.h>
+#import <RestKit/Support/RKErrors.h>
+#import <RestKit/Support/RKLog.h>
 
 // Set Logging Component
 #undef RKLogComponent
@@ -148,7 +148,14 @@ static NSDictionary *RKConnectionAttributeValuesWithObject(RKConnectionDescripti
 {
     *shouldConnectRelationship = YES;
     id connectionResult = nil;
-    if (connection.sourcePredicate && ![connection.sourcePredicate evaluateWithObject:self.managedObject]) return nil;
+    if (connection.sourcePredicate) {
+        __block BOOL evaluationResult;
+        [self.managedObject.managedObjectContext performBlockAndWait:^{
+            evaluationResult = [connection.sourcePredicate evaluateWithObject:self.managedObject];
+        }];
+        
+        if (!evaluationResult) return nil;
+    }
     
     if ([connection isForeignKeyConnection]) {
         NSDictionary *attributeValues = RKConnectionAttributeValuesWithObject(connection, self.managedObject);
@@ -157,11 +164,15 @@ static NSDictionary *RKConnectionAttributeValuesWithObject(RKConnectionDescripti
             *shouldConnectRelationship = NO;
             return nil;
         }
-        NSSet *managedObjects = [self.managedObjectCache managedObjectsWithEntity:[connection.relationship destinationEntity]
-                                                                  attributeValues:attributeValues
-                                                           inManagedObjectContext:self.managedObjectContext];
-        if (connection.destinationPredicate) managedObjects = [managedObjects filteredSetUsingPredicate:connection.destinationPredicate];
-        if (!connection.includesSubentities) managedObjects = [managedObjects filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"entity == %@", [connection.relationship destinationEntity]]];
+        __block NSSet *managedObjects = [self.managedObjectCache managedObjectsWithEntity:[connection.relationship destinationEntity]
+                                                                          attributeValues:attributeValues
+                                                                   inManagedObjectContext:self.managedObjectContext];
+
+        [self.managedObjectContext performBlockAndWait:^{
+            if (connection.destinationPredicate) managedObjects = [managedObjects filteredSetUsingPredicate:connection.destinationPredicate];
+            if (!connection.includesSubentities) managedObjects = [managedObjects filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"entity == %@", [connection.relationship destinationEntity]]];
+        }];
+        
         if ([connection.relationship isToMany]) {
             connectionResult = managedObjects;
         } else {
