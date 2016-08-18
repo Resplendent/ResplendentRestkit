@@ -1,17 +1,11 @@
-source 'https://github.com/CocoaPods/Specs.git'
-#use_frameworks!
-
-
-def sharedPods
-	pod "ResplendentRestkit", :path => "../"
-
-#	post_install do |installer|
-#		installer.pods_project.build_configuration_list.build_configurations.each do |configuration|
-#			configuration.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
-#		end
-#	end
-end
+use_frameworks!
 
 target 'ResplendentRestkit_Example' do
-	sharedPods
+  pod 'ResplendentRestkit', :path => '../'
+
+  target 'ResplendentRestkit_Tests' do
+    inherit! :search_paths
+
+    
+  end
 end

@@ -1,1 +1,0 @@
-../../../ResplendentUtilities/Pod/Classes/Category/UIImage/UIImage+RUResizing.h

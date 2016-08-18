@@ -13,8 +13,4 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
-
-#import <RestKit/CoreData/RKCoreData.h>
-#import <RestKit.h>
-
 #endif
