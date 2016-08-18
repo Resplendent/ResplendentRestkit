@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.source           = {
             :git => 'https://github.com/Resplendent/ResplendentRestkit.git',
-            :tag => 'v#{s.version.to_s}'
+            :tag => "v#{s.version.to_s}"
             }
 
   s.ios.deployment_target = '7.0'
@@ -28,14 +28,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'ResplendentRestkit/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'ResplendentRestkit' => ['ResplendentRestkit/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
-
   s.framework    = 'CoreData'
   s.framework    = 'SystemConfiguration'
   s.framework    = 'MobileCoreServices'
