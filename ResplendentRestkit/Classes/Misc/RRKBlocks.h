@@ -18,4 +18,4 @@ typedef void(^rrk_rkOperationAndMappingResultBlock) (RKObjectRequestOperation* _
 typedef void(^rrk_rkOperationAndErrorBlock) (RKObjectRequestOperation* _Nonnull operation, NSError* _Nonnull error);
 typedef void(^rrk_uploadProgressBlock) (NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite);
 
-typedef void(^rrk_AFRKMultipartFormData_block) (id <AFRKMultipartFormData> formData);
+typedef void(^rrk_AFRKMultipartFormData_block) (id <AFRKMultipartFormData> _Nullable formData);
