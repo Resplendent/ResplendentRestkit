@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ResplendentRestkit'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'A set of of tools to facilitate common Restkit usage.'
 
   s.homepage         = 'https://github.com/Resplendent/ResplendentRestkit'
@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.framework    = 'CoreData'
   s.framework    = 'SystemConfiguration'
   s.framework    = 'MobileCoreServices'
-  s.dependency 'ResplendentUtilities', '~> 0.4.0'
+  s.dependency 'ResplendentUtilities', '~> 0.5.0'
   s.dependency 'RestKit', '~> 0.27.0'
 
 end
