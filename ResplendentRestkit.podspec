@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.framework    = 'CoreData'
   s.framework    = 'SystemConfiguration'
   s.framework    = 'MobileCoreServices'
-  s.dependency 'ResplendentUtilities', '~> 0.4.0'
+  s.dependency 'ResplendentUtilities', '~> 0.5.0'
   s.dependency 'RestKit', '~> 0.27.0'
 
 end
