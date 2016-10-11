@@ -1,4 +1,6 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#endif
 
 #import "CALayer+RUMask.h"
 #import "CAShapeLayer+RUMessageBox.h"
@@ -42,7 +44,6 @@
 #import "UIImage+RUImageColorMasking.h"
 #import "UIImage+RUImageFromColor.h"
 #import "UIImage+RULaunchImage.h"
-#import "UIImage+RUResizing.h"
 #import "UIImage+RURotation.h"
 #import "UIImage+RUSaveToAssetsLibrary.h"
 #import "UIView+RUSnapshot.h"
