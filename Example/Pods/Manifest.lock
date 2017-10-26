@@ -1,7 +1,7 @@
 PODS:
   - ISO8601DateFormatterValueTransformer (0.6.1):
     - RKValueTransformers (~> 1.1.0)
-  - ResplendentRestkit (0.2.1):
+  - ResplendentRestkit (0.2.2):
     - ResplendentUtilities (~> 0.5.0)
     - RestKit (~> 0.27.0)
   - ResplendentUtilities (0.5.3)
@@ -36,7 +36,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ISO8601DateFormatterValueTransformer: 52da467d6ec899d6aedda8e48280ac92e8ee97e6
-  ResplendentRestkit: 87c2c4ac5975b5cfe9100239498073d396f8410f
+  ResplendentRestkit: fb91d3312a75544d247424e3d78aa837698b2fbe
   ResplendentUtilities: d0b25000014152fb14f5a9b9d36c391dc788aeb3
   RestKit: 556c913b0640c5bc5a9cb972361504e3ed628a1d
   RKValueTransformers: e5ed67e3811229b616fe01bddeeafe3bb337b1b9
