@@ -1,5 +1,13 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
 #endif
 
 #import "CoreData.h"
@@ -48,7 +56,6 @@
 #import "RKDynamicMapping.h"
 #import "RKErrorMessage.h"
 #import "RKMapperOperation.h"
-#import "RKMapperOperation_Private.h"
 #import "RKMapping.h"
 #import "RKMappingErrors.h"
 #import "RKMappingOperation.h"
@@ -67,6 +74,7 @@
 #import "lcl_config_extensions_RK.h"
 #import "lcl_config_logger_RK.h"
 #import "lcl_RK.h"
+#import "RKBooleanClass.h"
 #import "RKDictionaryUtilities.h"
 #import "RKDotNetDateFormatter.h"
 #import "RKErrors.h"
