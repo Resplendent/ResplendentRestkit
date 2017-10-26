@@ -268,6 +268,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Benjamin Maer";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 2P455BMH67;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -532,6 +535,7 @@
 			baseConfigurationReference = F4ADA3E22EF1B0C06048C215 /* Pods-ResplendentRestkit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2P455BMH67;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ResplendentRestkit/ResplendentRestkit-Prefix.pch";
 				INFOPLIST_FILE = "ResplendentRestkit/ResplendentRestkit-Info.plist";
@@ -547,6 +551,7 @@
 			baseConfigurationReference = A1275B5C03E64D74565FB9D1 /* Pods-ResplendentRestkit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2P455BMH67;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ResplendentRestkit/ResplendentRestkit-Prefix.pch";
 				INFOPLIST_FILE = "ResplendentRestkit/ResplendentRestkit-Info.plist";
