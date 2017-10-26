@@ -7,8 +7,9 @@
 //
 
 #import "RKObjectManager+RRKRequests.h"
-#import "RUConditionalReturn.h"
-#import "RUClassOrNilUtil.h"
+
+#import <ResplendentUtilities/RUConditionalReturn.h>
+#import <ResplendentUtilities/RUClassOrNilUtil.h>
 
 
 
@@ -16,19 +17,19 @@
 
 @implementation RKObjectManager (RRKRequests)
 
-- (RKObjectRequestOperation*)rrk_getRequestCreatedAfterPerformingBlock:(void (^)())createAndEnqueueRequestBlock
+-(nullable RKObjectRequestOperation*)rrk_getRequestCreatedAfterPerformingBlock:(void (^ _Nonnull)(void))createAndEnqueueRequestBlock
 {
 	kRUConditionalReturn_ReturnValueNil(createAndEnqueueRequestBlock == nil, YES);
 
-	NSArray* previousOperationsArray = [self.operationQueue.operations copy];
+	NSArray* const previousOperationsArray = [self.operationQueue.operations copy];
 
 	createAndEnqueueRequestBlock();
 	
-	NSMutableArray* newOperationsArray = [NSMutableArray arrayWithArray:self.operationQueue.operations];
+	NSMutableArray* const newOperationsArray = [NSMutableArray arrayWithArray:self.operationQueue.operations];
 	[newOperationsArray removeObjectsInArray:previousOperationsArray];
 	NSAssert(newOperationsArray.count == 1, @"shouldn't only be 1 new operation");
 	
-	RKObjectRequestOperation* newOperation = kRUClassOrNil(newOperationsArray.lastObject, RKObjectRequestOperation);
+	RKObjectRequestOperation* const newOperation = kRUClassOrNil(newOperationsArray.lastObject, RKObjectRequestOperation);
 	NSAssert(newOperation != nil, @"bad operation");
 	
 	return newOperation;

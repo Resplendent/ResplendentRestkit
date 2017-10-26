@@ -14,6 +14,6 @@
 
 @interface RKObjectManager (RRKRequests)
 
-- (RKObjectRequestOperation*)rrk_getRequestCreatedAfterPerformingBlock:(void (^)())createAndEnqueueRequestBlock;
+-(nullable RKObjectRequestOperation*)rrk_getRequestCreatedAfterPerformingBlock:(void (^ _Nonnull)(void))createAndEnqueueRequestBlock;
 
 @end
